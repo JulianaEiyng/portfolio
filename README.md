@@ -9,7 +9,7 @@ Portfólio pessoal desenvolvido com HTML, CSS e JavaScript puro — sem framewor
 
 ## 🔗 Acesse
 
-> _cole aqui o link do GitHub Pages quando subir_
+> _https://julianaeiyng.github.io/portfolio/
 
 ## 📁 Estrutura
 
