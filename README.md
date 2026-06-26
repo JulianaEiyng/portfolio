@@ -9,8 +9,14 @@ Portfólio pessoal desenvolvido com HTML, CSS e JavaScript puro — sem framewor
 
 ## 📸 Preview
 
-![Preview desktop](imagens/preview-desktop.png)
-![Preview mobile](imagens/preview-mobile.png)
+![Preview desktop](imagens/porfolio-desktop.png)
+![Preview desktop](imagens/desktop.png)
+![Preview desktop](imagens/portfolio-habilidade-desktop.png)
+![Preview desktop](imagens/portfolio-projeto-desktop.png)
+
+![Preview mobile](imagens/portfolio-mobile.png)
+![Preview mobile](imagens/mobile.png)
+![Preview mobile](imagens/portfolio-contatos-mobile.png)
 
 
 ## 🔗 Acesse
