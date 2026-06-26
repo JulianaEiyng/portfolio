@@ -1,15 +1,15 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --pink:    #E600A0;
-  --pink-lt: #FF33BB;
-  --dark:    #0D0D0D;
-  --dark2:   #141414;
-  --dark3:   #1C1C1C;
-  --gray:    #9A9A9A;
-  --gray-lt: #C8C8C8;
-  --white:   #F5F5F5;
-  --card:    #181818;
+ --pink:    #E600A0;
+ --pink-lt: #FF33BB;
+ --dark:    #0D0D0D;
+ --dark2:   #141414;
+ --dark3:   #1C1C1C;
+ --gray:    #9A9A9A;
+ --gray-lt: #C8C8C8;
+ --white:   #F5F5F5;
+ --card:    #181818;
 }
 
 html { scroll-behavior: smooth; }
@@ -17,11 +17,11 @@ body { font-family: 'Inter', sans-serif; background: var(--dark); color: var(--w
 
 /* ── NAV ─────────────────────────────────────── */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 5%; height: 72px;
-  background: rgba(13,13,13,0.85); backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(230,0,160,0.15);
+ position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+ display: flex; align-items: center; justify-content: space-between;
+ padding: 0 5%; height: 72px;
+ background: rgba(13,13,13,0.85); backdrop-filter: blur(14px);
+ border-bottom: 1px solid rgba(230,0,160,0.15);
 }
 .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .logo-svg { width: 40px; height: 40px; }
@@ -83,6 +83,7 @@ nav {
 .skill-card { background: var(--card); border-radius: 12px; padding: 24px 20px; border: 1px solid rgba(255,255,255,.06); display: flex; align-items: center; gap: 14px; transition: border-color .2s, transform .2s; }
 .skill-card:hover { border-color: rgba(230,0,160,.5); transform: translateY(-4px); }
 .skill-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(230,0,160,.12); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+.skill-icon i { font-size: 26px; }  /* ← ADICIONADO */
 .skill-name { font-size: 14px; font-weight: 600; color: var(--white); }
 .skill-level { font-size: 11px; color: var(--gray); margin-top: 2px; }
 
@@ -115,27 +116,27 @@ nav {
 
 /* ── BADGE PRIVADO ───────────────────────────── */
 .badge-privado {
-  font-size: 10px; font-weight: 600;
-  color: var(--gray); border: 1px solid rgba(255,255,255,.15);
-  border-radius: 999px; padding: 2px 8px;
-  vertical-align: middle; margin-left: 6px;
+ font-size: 10px; font-weight: 600;
+ color: var(--gray); border: 1px solid rgba(255,255,255,.15);
+ border-radius: 999px; padding: 2px 8px;
+ vertical-align: middle; margin-left: 6px;
 }
 
 /* ── CARDS EM BREVE ──────────────────────────── */
 .proj-card--soon { opacity: .6; cursor: default; pointer-events: none; }
 .proj-card--soon:hover { border-color: rgba(255,255,255,.06); transform: none; }
 .proj-soon-thumb {
-  aspect-ratio: 16/10;
-  background: linear-gradient(135deg, #111 0%, #1a001a 100%);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 10px;
+ aspect-ratio: 16/10;
+ background: linear-gradient(135deg, #111 0%, #1a001a 100%);
+ display: flex; flex-direction: column;
+ align-items: center; justify-content: center; gap: 10px;
 }
 .proj-soon-icon { font-size: 32px; opacity: .35; }
 .proj-soon-label {
-  font-size: 11px; font-weight: 700; letter-spacing: .15em;
-  text-transform: uppercase; color: var(--gray);
-  border: 1px solid rgba(255,255,255,.1);
-  padding: 4px 14px; border-radius: 999px;
+ font-size: 11px; font-weight: 700; letter-spacing: .15em;
+ text-transform: uppercase; color: var(--gray);
+ border: 1px solid rgba(255,255,255,.1);
+ padding: 4px 14px; border-radius: 999px;
 }
 
 /* ── CONTATO ─────────────────────────────────── */
@@ -166,55 +167,55 @@ footer span { color: var(--pink); }
 
 /* ── MENU HAMBURGUER ─────────────────────────── */
 .menu-toggle {
-  display: none;
-  background: transparent;
-  border: none;
-  color: var(--white);
-  font-size: 24px;
-  cursor: pointer;
-  padding: 4px 8px;
+ display: none;
+ background: transparent;
+ border: none;
+ color: var(--white);
+ font-size: 24px;
+ cursor: pointer;
+ padding: 4px 8px;
 }
 
 /* ── RESPONSIVE ──────────────────────────────── */
 @media (max-width: 900px) {
-  #inicio { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { min-height: 50vw; }
-  .hero-right { padding: 60px 6%; }
-  #sobre, #contato { grid-template-columns: 1fr; gap: 48px; }
-  .nav-links { gap: 20px; }
+ #inicio { grid-template-columns: 1fr; min-height: auto; }
+ .hero-left { min-height: 50vw; }
+ .hero-right { padding: 60px 6%; }
+ #sobre, #contato { grid-template-columns: 1fr; gap: 48px; }
+ .nav-links { gap: 20px; }
 }
 @media (max-width: 600px) {
-  nav { padding: 0 4%; }
+ nav { padding: 0 4%; }
 
-  /* Menu hamburguer */
-  .menu-toggle { display: block; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 72px; left: 0; right: 0;
-    background: rgba(13,13,13,0.97);
-    flex-direction: column;
-    padding: 20px;
-    gap: 16px;
-  }
-  .nav-links.open { display: flex; }
-  .nav-links li { display: block !important; }
+ /* Menu hamburguer */
+ .menu-toggle { display: block; }
+ .nav-links {
+   display: none;
+   position: absolute;
+   top: 72px; left: 0; right: 0;
+   background: rgba(13,13,13,0.97);
+   flex-direction: column;
+   padding: 20px;
+   gap: 16px;
+ }
+ .nav-links.open { display: flex; }
+ .nav-links li { display: block !important; }
 
-  /* Hero mobile */
-  #inicio { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left {
-    order: -1;
-    min-height: 60vw;
-    max-height: 70vw;
-  }
-  .hero-photo {
-    min-height: unset;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-  }
-  .hero-right { padding: 40px 5%; }
+ /* Hero mobile */
+ #inicio { grid-template-columns: 1fr; min-height: auto; }
+ .hero-left {
+   order: -1;
+   min-height: 60vw;
+   max-height: 70vw;
+ }
+ .hero-photo {
+   min-height: unset;
+   height: 100%;
+   object-fit: cover;
+   object-position: top center;
+ }
+ .hero-right { padding: 40px 5%; }
 
-  #inicio, #sobre, #habilidades, #portfolio, #contato { padding-left: 5%; padding-right: 5%; }
-  .skills-grid { grid-template-columns: 1fr 1fr; }
+ #inicio, #sobre, #habilidades, #portfolio, #contato { padding-left: 5%; padding-right: 5%; }
+ .skills-grid { grid-template-columns: 1fr 1fr; }
 }
