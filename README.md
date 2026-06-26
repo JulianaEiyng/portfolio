@@ -16,7 +16,7 @@ Portfólio pessoal desenvolvido com HTML, CSS e JavaScript puro — sem framewor
 
 ![Preview mobile](prints/portfolio-mobile.jpeg)
 ![Preview mobile](prints/mobile.jpeg)
-![Preview mobile](prints/portfolio-contatos-mobile.jpg)
+![Preview mobile](prints/portfolio-contatos.jpg)
 
 
 ## 🔗 Acesse
