@@ -2,6 +2,10 @@
 
 Portfólio pessoal desenvolvido com HTML, CSS e JavaScript puro — sem frameworks, sem dependências.
 
+## 🔗 Acesse
+
+> https://julianaeiyng.github.io/portfolio/
+
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
@@ -19,9 +23,6 @@ Portfólio pessoal desenvolvido com HTML, CSS e JavaScript puro — sem framewor
 ![Preview mobile](prints/portfolio-contatos.jpg)
 
 
-## 🔗 Acesse
-
-> https://julianaeiyng.github.io/portfolio/
 
 ## 📁 Estrutura
 
