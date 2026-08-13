@@ -10,15 +10,6 @@ Portfólio pessoal desenvolvido com HTML, CSS e JavaScript puro — sem framewor
 ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 
-## 📸 Preview
-
-![Preview desktop](prints/porfolio-desktop.png)
-![Preview desktop](prints/desktop.png)
-![Preview desktop](prints/portfolio-habilidade-desktop.png)
-![Preview desktop](prints/portfolio-projeto-desktop.png)
-
-![Preview mobile](prints/portfolio-mobile.jpeg)
-![Preview mobile](prints/portfolio-contatos.jpg)
 
 
 
