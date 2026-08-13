@@ -292,8 +292,8 @@ footer span { color: var(--gold); }
  #inicio { grid-template-columns: 1fr; min-height: auto; }
  .hero-left {
    order: -1;
-   min-height: 60vw;
-   max-height: 70vw;
+   min-height: 92vw;
+   max-height: 118vw;
  }
  .hero-photo {
    min-height: unset;
