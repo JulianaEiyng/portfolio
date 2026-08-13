@@ -1,46 +1,56 @@
-# 🖤 Portfólio — Juliana Eiyng
+🖤 Portfólio — Juliana Eiyng
 
 Portfólio pessoal desenvolvido com HTML, CSS e JavaScript puro — sem frameworks, sem dependências.
 
-##  Acesse
+## Acesse
+https://julianaeiyng.github.io/portfolio/
 
-> https://julianaeiyng.github.io/portfolio/
+`HTML` `CSS` `JavaScript`
 
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+## Estrutura
 
-
-
-
-##  Estrutura
-
-```
 portfolio-juliana-eiyng/
 ├── index.html    ← estrutura e animações
 ├── style.css     ← todos os estilos
 ├── README.md     ← este arquivo
 └── imagens/
-    ├── hero2.webp
-    └── sobre.webp
-```
+    ├── A7A28D5F-93E4-4601-8E51-0961DB8B540A.png   (foto do hero)
+    ├── villaterra-dashboard-admin.webp
+    ├── villaterra-funil-kanban.webp
+    ├── villaterra-imovel-publico.webp
+    ├── agenda.webp
+    ├── atendimento.webp
+    ├── simulador.webp
+    ├── graficos.webp
+    ├── metricas gerais-salario-anual - usd.webp
+    ├── dashboard-crm.png
+    ├── crm-agendamentos.png
+    ├── financeiro-erp.webp
+    ├── planner-erp.webp
+    ├── reuniões-erp.webp
+    ├── serviços-erp.webp
+    ├── tarefas-erp.webp
+    ├── portfolio-kelvin.jpg
+    ├── sobre-portfolio-kelvin.jpg
+    ├── contatos-portfolio-kelvin.jpg
+    └── portfolio-contato.jpg
 
-##  Seções
+## Seções
 
 - **Início** — apresentação com foto
 - **Sobre mim** — bio + terminal animado
-- **Habilidades** — cards de tecnologias
-- **Portfólio** — projetos
+- **Habilidades** — cards de tecnologias (Python, Django, DRF, JavaScript, React, Tailwind CSS, FastAPI, PostgreSQL, Git & GitHub), cada um linkado à documentação oficial
+- **Portfólio** — projeto em destaque (CRM Villa Terra Imobiliária, cliente real) + grade dos demais projetos
 - **Contato** — links + WhatsApp
 
-##  Tecnologias
+## Tecnologias
 
 | Tecnologia | Uso |
 |---|---|
 | HTML5 | Estrutura das seções |
 | CSS3 (variáveis, grid, flexbox) | Layout e estilos |
 | JavaScript vanilla | Animações de scroll e terminal |
-| Google Fonts — Inter | Tipografia |
+| Google Fonts — Inter & Playfair Display | Tipografia |
 | GitHub Pages | Hospedagem gratuita |
 
 ---
