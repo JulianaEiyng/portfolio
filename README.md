@@ -2,7 +2,7 @@
 
 Portfólio pessoal desenvolvido com HTML, CSS e JavaScript puro — sem frameworks, sem dependências.
 
-## 🔗 Acesse
+##  Acesse
 
 > https://julianaeiyng.github.io/portfolio/
 
@@ -13,7 +13,7 @@ Portfólio pessoal desenvolvido com HTML, CSS e JavaScript puro — sem framewor
 
 
 
-## 📁 Estrutura
+##  Estrutura
 
 ```
 portfolio-juliana-eiyng/
@@ -25,7 +25,7 @@ portfolio-juliana-eiyng/
     └── sobre.webp
 ```
 
-## 📌 Seções
+##  Seções
 
 - **Início** — apresentação com foto
 - **Sobre mim** — bio + terminal animado
@@ -33,7 +33,7 @@ portfolio-juliana-eiyng/
 - **Portfólio** — projetos
 - **Contato** — links + WhatsApp
 
-## 🛠️ Tecnologias
+##  Tecnologias
 
 | Tecnologia | Uso |
 |---|---|
