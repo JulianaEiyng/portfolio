@@ -9,31 +9,13 @@ https://julianaeiyng.github.io/portfolio/
 
 ## Estrutura
 
+​```
 portfolio-juliana-eiyng/
-├── index.html    ← estrutura e animações
-├── style.css     ← todos os estilos
-├── README.md     ← este arquivo
-└── imagens/
-    ├── A7A28D5F-93E4-4601-8E51-0961DB8B540A.png   (foto do hero)
-    ├── villaterra-dashboard-admin.webp
-    ├── villaterra-funil-kanban.webp
-    ├── villaterra-imovel-publico.webp
-    ├── agenda.webp
-    ├── atendimento.webp
-    ├── simulador.webp
-    ├── graficos.webp
-    ├── metricas gerais-salario-anual - usd.webp
-    ├── dashboard-crm.png
-    ├── crm-agendamentos.png
-    ├── financeiro-erp.webp
-    ├── planner-erp.webp
-    ├── reuniões-erp.webp
-    ├── serviços-erp.webp
-    ├── tarefas-erp.webp
-    ├── portfolio-kelvin.jpg
-    ├── sobre-portfolio-kelvin.jpg
-    ├── contatos-portfolio-kelvin.jpg
-    └── portfolio-contato.jpg
+├── index.html    (estrutura e animações)
+├── style.css     (todos os estilos)
+├── README.md     (este arquivo)
+└── imagens/      (fotos e prints usados no site)
+​```
 
 ## Seções
 
@@ -53,6 +35,4 @@ portfolio-juliana-eiyng/
 | Google Fonts — Inter & Playfair Display | Tipografia |
 | GitHub Pages | Hospedagem gratuita |
 
----
-
-*Feito com ♥ por uma futura Engenheira de Software*
+Feito com ♥ por uma futura Engenheira de Software
