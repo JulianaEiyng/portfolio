@@ -33,11 +33,11 @@
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="#inicio">Início</a></li>
-    <li><a href="#sobre">Sobre mim</a></li>
-    <li><a href="#habilidades">Habilidades</a></li>
-    <li><a href="#portfolio">Portfólio</a></li>
-    <li><a href="#contato" class="btn-nav">Contato</a></li>
+    <li><a href="#inicio" data-section="inicio">Início</a></li>
+    <li><a href="#sobre" data-section="sobre">Sobre mim</a></li>
+    <li><a href="#habilidades" data-section="habilidades">Habilidades</a></li>
+    <li><a href="#portfolio" data-section="portfolio">Portfólio</a></li>
+    <li><a href="#contato" data-section="contato" class="btn-nav">Contato</a></li>
   </ul>
   <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
 </nav>
@@ -46,7 +46,9 @@
 <section id="inicio">
   <div class="hero-glow"></div>
   <div class="hero-left">
-    <img src="imagens/A7A28D5F-93E4-4601-8E51-0961DB8B540A.png" class="hero-photo" alt="Juliana Eiyng" />
+    <div class="hero-photo-frame">
+      <img src="imagens/A7A28D5F-93E4-4601-8E51-0961DB8B540A.png" class="hero-photo" alt="Juliana Eiyng" />
+    </div>
   </div>
   <div class="hero-right">
     <span class="hero-tag">Engenharia de Software · Em busca do primeiro estágio</span>
@@ -143,6 +145,10 @@
   <!-- PROJETO EM DESTAQUE — CRM Villa Terra Imobiliária -->
   <a href="https://github.com/JulianaEiyng/crm-villaterra-imobiliaria" target="_blank" class="feat-card fade-in">
     <div class="feat-carousel">
+      <div class="browser-bar">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="browser-url">app.villaterraimob.com.br</span>
+      </div>
       <div class="carousel" data-index="0">
         <div class="carousel-track">
           <img src="imagens/villaterra-dashboard-admin.png" alt="CRM Villa Terra — Dashboard Admin" />
@@ -189,6 +195,10 @@
 
     <!-- PROJETO 2 — Portfólio Kelvin Eiyng -->
     <a href="https://github.com/JulianaEiyng/portfolio-kelvin-eiyng" target="_blank" class="proj-card fade-in">
+      <div class="browser-bar">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="browser-url">kelvineiyng.me</span>
+      </div>
       <div class="carousel carousel--contain" data-index="0">
         <div class="carousel-track">
           <img src="imagens/portfolio-kelvin.jpg" alt="Portfólio Kelvin Eiyng" />
@@ -216,6 +226,10 @@
 
     <!-- PROJETO 3 — CRM Kelvin (privado) -->
     <a href="https://github.com/JulianaEiyng/crm-kelvin-eiyng-v2" target="_blank" class="proj-card fade-in">
+      <div class="browser-bar">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="browser-url">crm.kelvineiyng.me</span>
+      </div>
       <div class="carousel" data-index="0">
         <div class="carousel-track">
           <img src="imagens/dashboard-crm.png" alt="CRM Kelvin" />
@@ -242,6 +256,10 @@
 
     <!-- PROJETO 4 — ERP Admin MDA (privado) -->
     <a href="https://github.com/JulianaEiyng/erp-admin-mda" target="_blank" class="proj-card fade-in">
+      <div class="browser-bar">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="browser-url">erp.mdaeletrica.com.br</span>
+      </div>
       <div class="carousel" data-index="0">
         <div class="carousel-track">
           <img src="imagens/financeiro-erp.webp" alt="ERP Admin MDA" />
@@ -272,6 +290,10 @@
 
     <!-- PROJETO 5 — Central do Corretor -->
     <a href="https://github.com/JulianaEiyng/sistema_Kelvin_corretor_imobiliario" target="_blank" class="proj-card fade-in">
+      <div class="browser-bar">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="browser-url">central.corretor.app</span>
+      </div>
       <div class="carousel" data-index="0">
         <div class="carousel-track">
           <img src="imagens/agenda.webp" alt="Central do Corretor" />
@@ -299,6 +321,10 @@
 
     <!-- PROJETO 6 — Dashboard Salários -->
     <a href="https://github.com/JulianaEiyng/dashboard-salarios-dados" target="_blank" class="proj-card fade-in">
+      <div class="browser-bar">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="browser-url">dashboard.salarios.data</span>
+      </div>
       <div class="carousel" data-index="0">
         <div class="carousel-track">
           <img src="imagens/graficos.webp" alt="Dashboard Salários" />
@@ -408,6 +434,37 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // ── Scroll-spy: destaca o link do menu conforme a seção visível ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach((link) => {
+          link.classList.toggle('active', link.dataset.section === id);
+        });
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  sections.forEach((s) => spyObserver.observe(s));
+
+  // ── Clique no menu: rolagem suave + destaque momentâneo na seção ──
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href');
+      const target = document.querySelector(targetId);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.classList.remove('section-flash');
+      void target.offsetWidth; // reinicia a animação se clicado de novo
+      target.classList.add('section-flash');
+      setTimeout(() => target.classList.remove('section-flash'), 1300);
+      document.querySelector('.nav-links').classList.remove('open');
+    });
+  });
 
   function moveCarousel(e, btn, dir) {
     e.preventDefault();
