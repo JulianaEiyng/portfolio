@@ -47,9 +47,20 @@ nav {
  background: var(--gold); transition: width .25s ease;
 }
 .nav-links a:not(.btn-nav):hover::after { width: 100%; }
+.nav-links a:not(.btn-nav).active::after { width: 100%; }
 .nav-links a:hover { color: var(--cream); }
+.nav-links a:not(.btn-nav).active { color: var(--gold-lt); }
 .nav-links .btn-nav { padding: 8px 22px; border: 1px solid var(--gold); border-radius: 6px; color: var(--gold) !important; font-weight: 600; transition: background .2s, color .2s, box-shadow .2s; }
 .nav-links .btn-nav:hover { background: var(--gold); color: var(--black) !important; box-shadow: 0 0 24px rgba(140,106,34,0.35); }
+.nav-links .btn-nav.active { background: var(--gold); color: var(--black) !important; }
+
+/* ── DESTAQUE DE SEÇÃO AO NAVEGAR ────────────── */
+.section-flash { animation: sectionFlash 1.3s ease; }
+@keyframes sectionFlash {
+ 0%   { box-shadow: inset 0 0 0 0 rgba(140,106,34,0); }
+ 25%  { box-shadow: inset 0 0 110px 0 rgba(140,106,34,0.10); }
+ 100% { box-shadow: inset 0 0 0 0 rgba(140,106,34,0); }
+}
 
 /* ── HERO ────────────────────────────────────── */
 #inicio { position: relative; min-height: 100vh; display: grid; grid-template-columns: 1fr 1.1fr; padding-top: 72px; overflow: hidden; }
@@ -64,9 +75,25 @@ nav {
  0%   { transform: translate(0, 0) scale(1); }
  100% { transform: translate(2%, -3%) scale(1.06); }
 }
-.hero-left { background: transparent; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; position: relative; min-height: calc(100vh - 72px); z-index: 1; }
-.hero-left::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 90%, rgba(140,106,34,0.20) 0%, transparent 65%); pointer-events: none; }
-.hero-photo { width: 100%; max-width: 500px; height: 100%; min-height: calc(100vh - 72px); object-fit: contain; object-position: bottom center; display: block; filter: drop-shadow(0 0 60px rgba(140,106,34,0.22)); }
+.hero-left { background: transparent; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; min-height: calc(100vh - 72px); z-index: 1; padding: 40px; }
+
+/* Moldura editorial: um contorno dourado deslocado atrás do retrato,
+   em vez da foto a sangria total preenchendo a coluna inteira. */
+.hero-photo-frame { position: relative; width: 100%; max-width: 380px; }
+.hero-photo-frame::before {
+ content: ''; position: absolute; inset: 0; z-index: 0;
+ border: 1px solid var(--gold);
+ border-radius: 18px;
+ transform: translate(20px, 20px);
+ transition: transform .4s ease;
+}
+.hero-photo-frame:hover::before { transform: translate(14px, 14px); }
+.hero-photo {
+ position: relative; z-index: 1; display: block;
+ width: 100%; aspect-ratio: 3 / 4; object-fit: cover;
+ border-radius: 18px;
+ box-shadow: 0 40px 70px rgba(0,0,0,.55);
+}
 .hero-right { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; padding: 80px 6% 80px 7%; background: var(--black); }
 .hero-tag, .hero-right h1, .hero-sub, .hero-btns {
  opacity: 0; animation: heroSlideUp .8s cubic-bezier(.22,.68,0,1.01) forwards;
@@ -159,8 +186,8 @@ nav {
  content: ''; position: absolute; inset: 1px; z-index: -1; border-radius: 19px; background: var(--card);
 }
 @keyframes rotateHalo { to { transform: rotate(360deg); } }
-.feat-carousel { position: relative; }
-.feat-carousel .carousel { height: 100%; min-height: 320px; aspect-ratio: auto; }
+.feat-carousel { position: relative; display: flex; flex-direction: column; height: 100%; }
+.feat-carousel .carousel { flex: 1; min-height: 280px; aspect-ratio: auto; }
 .feat-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 10px; }
 .feat-title { font-family: var(--font-display); font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 800; color: var(--cream); margin-bottom: 14px; }
 .feat-body { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
@@ -175,6 +202,20 @@ nav {
 .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
 .proj-card { background: var(--card); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,.06); transition: border-color .2s, transform .2s; text-decoration: none; display: block; }
 .proj-card:hover { border-color: rgba(140,106,34,.4); transform: translateY(-6px); }
+
+/* ── JANELA DE NAVEGADOR (chrome do card, no mesmo espírito do terminal) ── */
+.browser-bar {
+ display: flex; align-items: center; gap: 8px;
+ background: #121110; padding: 10px 14px;
+ border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.browser-bar span.dot-red, .browser-bar span.dot-yellow, .browser-bar span.dot-green {
+ width: 9px; height: 9px;
+}
+.browser-url {
+ margin-left: 8px; font-size: 11px; font-family: monospace;
+ color: #6b6659; letter-spacing: .01em;
+}
 
 /* ── CARROSSEL ───────────────────────────────── */
 .carousel { position: relative; aspect-ratio: 16/10; overflow: hidden; background: #0a0908; }
@@ -264,7 +305,8 @@ footer span { color: var(--gold); }
 /* ── RESPONSIVE ──────────────────────────────── */
 @media (max-width: 900px) {
  #inicio { grid-template-columns: 1fr; min-height: auto; }
- .hero-left { min-height: 50vw; }
+ .hero-left { min-height: auto; padding: 60px 40px 20px; }
+ .hero-photo-frame { max-width: 320px; }
  .hero-right { padding: 60px 6%; }
  #sobre, #contato { grid-template-columns: 1fr; gap: 48px; }
  .nav-links { gap: 20px; }
@@ -292,15 +334,10 @@ footer span { color: var(--gold); }
  #inicio { grid-template-columns: 1fr; min-height: auto; }
  .hero-left {
    order: -1;
-   min-height: 92vw;
-   max-height: 118vw;
+   padding: 40px 24px 10px;
  }
- .hero-photo {
-   min-height: unset;
-   height: 100%;
-   object-fit: cover;
-   object-position: top center;
- }
+ .hero-photo-frame { max-width: 240px; }
+ .hero-photo-frame::before { transform: translate(12px, 12px); }
  .hero-right { padding: 40px 5%; }
 
  #inicio, #sobre, #habilidades, #portfolio, #contato { padding-left: 5%; padding-right: 5%; }
