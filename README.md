@@ -20,9 +20,10 @@ portfolio-juliana-eiyng/
 
 ## Seções
 
-- **Início** — apresentação com foto
-- **Sobre mim** — bio + terminal animado
-- **Habilidades** — cards de tecnologias (Python, Django, DRF, JavaScript, React, Tailwind CSS, FastAPI, PostgreSQL, Git & GitHub, LLMs & RAG, Pydantic, scikit-learn, Hugging Face), cada um linkado à documentação oficial ou ao projeto
+- **Navegação** — ao clicar no menu, a seção atual desliza para fora e a nova entra pelo outro lado, como uma troca de página
+- **Início** — apresentação com foto e título digitado letra por letra
+- **Sobre mim** — bio que aparece palavra por palavra + terminal animado
+- **Habilidades** — baralho interativo de cards: arraste o card de cima para os lados ou use as setas (Python, Django, DRF, JavaScript, React, Tailwind CSS, FastAPI, PostgreSQL, Deploy & Cloud, Git & GitHub, LLMs & RAG, Pydantic, scikit-learn, Hugging Face)
 - **Portfólio** — projeto em destaque (CRM Villa Terra Imobiliária, cliente real) + grade dos demais projetos
 - **Como eu construo com IA** — o caminho do tutor com RAG do My Language Study Notebook, os resultados dos evals e as decisões técnicas
 - **Contato** — links + WhatsApp
@@ -34,7 +35,7 @@ portfolio-juliana-eiyng/
 |---|---|
 | HTML5 | Estrutura das seções |
 | CSS3 (variáveis, grid, flexbox) | Layout e estilos |
-| JavaScript vanilla | Animações de scroll, terminal e chat do assistente |
+| JavaScript vanilla | Transições do menu, baralho de habilidades, animações de texto e scroll, terminal e chat do assistente |
 | Google Fonts — Inter & Playfair Display | Tipografia |
 | GitHub Pages | Hospedagem gratuita |
 | Backend do assistente (FastAPI no Render) | Respostas do chat, em um repositório separado |
