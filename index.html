@@ -479,6 +479,32 @@
   <p>Feito com <span>♥</span> por uma desenvolvedora de software e IA</p>
 </footer>
 
+<!-- ── ASSISTENTE "PERGUNTE SOBRE A JULIANA" ─────────── -->
+<button class="ask-toggle" id="ask-toggle" aria-controls="ask-panel" aria-expanded="false">✦ Pergunte sobre mim</button>
+
+<div class="ask-panel" id="ask-panel" role="dialog" aria-label="Assistente do portfólio">
+  <div class="ask-header">
+    <div>
+      <p class="ask-title">Pergunte sobre a Juliana</p>
+      <p class="ask-subtitle">Assistente com RAG · responde em português ou inglês</p>
+    </div>
+    <button class="ask-close" id="ask-close" aria-label="Fechar">×</button>
+  </div>
+
+  <div class="ask-messages" id="ask-messages" aria-live="polite"></div>
+
+  <div class="ask-suggestions" id="ask-suggestions">
+    <button class="ask-suggestion" type="button">Ela já trabalhou com RAG?</button>
+    <button class="ask-suggestion" type="button">Fale do CRM em produção</button>
+    <button class="ask-suggestion" type="button">What is she looking for?</button>
+  </div>
+
+  <form class="ask-form" id="ask-form">
+    <input class="ask-input" id="ask-input" maxlength="500" placeholder="Pergunte sobre projetos, stack ou experiência" autocomplete="off" />
+    <button class="ask-send" id="ask-send" type="submit" aria-label="Enviar">↑</button>
+  </form>
+</div>
+
 <!-- ── SCRIPTS ───────────────────────────────────────── -->
 <script>
   // ── Entrada em sequência: cada card de um grupo .stagger entra um pouco depois do anterior ──
@@ -602,6 +628,7 @@
   }
   setTimeout(tick, 1000);
 </script>
+<script src="chat.js"></script>
 
 </body>
 </html>
