@@ -17,21 +17,7 @@
 
 <!-- ── NAV ─────────────────────────────────────────── -->
 <nav>
-  <a href="#inicio" class="logo">
-    <svg class="logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <text x="2" y="34" font-family="'Playfair Display', serif" font-size="34" font-weight="800" fill="url(#goldGrad)">J</text>
-      <defs>
-        <linearGradient id="goldGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#F0D488"/>
-          <stop offset="1" stop-color="#B8862E"/>
-        </linearGradient>
-      </defs>
-    </svg>
-    <div class="logo-name">
-      <span>Juliana</span>
-      <span>Eiyng</span>
-    </div>
-  </a>
+  <a href="#inicio" class="logo">Juliana <span>Eiyng</span></a>
   <ul class="nav-links">
     <li><a href="#inicio" data-section="inicio">Início</a></li>
     <li><a href="#sobre" data-section="sobre">Sobre mim</a></li>
@@ -127,20 +113,29 @@
 <section id="habilidades">
   <p class="section-label fade-in">Tecnologias</p>
   <h2 class="section-title fade-in">Minhas <span>habilidades</span></h2>
-  <div class="skills-grid stagger">
-    <a href="https://www.python.org/" target="_blank" class="skill-card fade-in"><div class="skill-icon">PY</div><div><div class="skill-name">Python</div><div class="skill-level">Linguagem principal</div></div></a>
-    <a href="https://www.djangoproject.com/" target="_blank" class="skill-card fade-in"><div class="skill-icon">DJ</div><div><div class="skill-name">Django</div><div class="skill-level">Backend</div></div></a>
-    <a href="https://www.django-rest-framework.org/" target="_blank" class="skill-card fade-in"><div class="skill-icon">RF</div><div><div class="skill-name">Django REST Framework</div><div class="skill-level">APIs</div></div></a>
-    <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank" class="skill-card fade-in"><div class="skill-icon">JS</div><div><div class="skill-name">JavaScript</div><div class="skill-level">Nível avançado</div></div></a>
-    <a href="https://react.dev/" target="_blank" class="skill-card fade-in"><div class="skill-icon">RX</div><div><div class="skill-name">React</div><div class="skill-level">Frontend</div></div></a>
-    <a href="https://tailwindcss.com/" target="_blank" class="skill-card fade-in"><div class="skill-icon">TW</div><div><div class="skill-name">Tailwind CSS</div><div class="skill-level">Estilização</div></div></a>
-    <a href="https://fastapi.tiangolo.com/" target="_blank" class="skill-card fade-in"><div class="skill-icon">FA</div><div><div class="skill-name">FastAPI</div><div class="skill-level">Backend</div></div></a>
-    <a href="https://www.postgresql.org/" target="_blank" class="skill-card fade-in"><div class="skill-icon">PG</div><div><div class="skill-name">PostgreSQL</div><div class="skill-level">Banco de dados</div></div></a>
-    <a href="https://github.com/JulianaEiyng" target="_blank" class="skill-card fade-in"><div class="skill-icon">GIT</div><div><div class="skill-name">Git & GitHub</div><div class="skill-level">Versionamento</div></div></a>
-    <a href="https://mlsn-demo-web.onrender.com" target="_blank" class="skill-card fade-in"><div class="skill-icon">AI</div><div><div class="skill-name">LLMs & RAG</div><div class="skill-level">IA generativa</div></div></a>
-    <a href="https://docs.pydantic.dev/" target="_blank" class="skill-card fade-in"><div class="skill-icon">PD</div><div><div class="skill-name">Pydantic</div><div class="skill-level">Saída estruturada</div></div></a>
-    <a href="https://scikit-learn.org/" target="_blank" class="skill-card fade-in"><div class="skill-icon">ML</div><div><div class="skill-name">scikit-learn</div><div class="skill-level">Machine Learning</div></div></a>
-    <a href="https://huggingface.co/" target="_blank" class="skill-card fade-in"><div class="skill-icon">HF</div><div><div class="skill-name">Hugging Face</div><div class="skill-level">Transformers · NLP</div></div></a>
+  <div class="skills-play fade-in">
+    <div class="skills-deck" id="skills-deck" tabindex="0" aria-label="Habilidades: arraste o card de cima para os lados">
+      <div class="skill-card"><div class="skill-icon">PY</div><div><div class="skill-name">Python</div><div class="skill-level">Linguagem principal</div></div></div>
+      <div class="skill-card"><div class="skill-icon">DJ</div><div><div class="skill-name">Django</div><div class="skill-level">Backend</div></div></div>
+      <div class="skill-card"><div class="skill-icon">RF</div><div><div class="skill-name">Django REST Framework</div><div class="skill-level">APIs</div></div></div>
+      <div class="skill-card"><div class="skill-icon">JS</div><div><div class="skill-name">JavaScript</div><div class="skill-level">Nível avançado</div></div></div>
+      <div class="skill-card"><div class="skill-icon">RX</div><div><div class="skill-name">React</div><div class="skill-level">Frontend</div></div></div>
+      <div class="skill-card"><div class="skill-icon">TW</div><div><div class="skill-name">Tailwind CSS</div><div class="skill-level">Estilização</div></div></div>
+      <div class="skill-card"><div class="skill-icon">FA</div><div><div class="skill-name">FastAPI</div><div class="skill-level">Backend</div></div></div>
+      <div class="skill-card"><div class="skill-icon">PG</div><div><div class="skill-name">PostgreSQL</div><div class="skill-level">Banco de dados</div></div></div>
+      <div class="skill-card"><div class="skill-icon">GIT</div><div><div class="skill-name">Git & GitHub</div><div class="skill-level">Versionamento</div></div></div>
+      <div class="skill-card"><div class="skill-icon">AI</div><div><div class="skill-name">LLMs & RAG</div><div class="skill-level">IA generativa</div></div></div>
+      <div class="skill-card"><div class="skill-icon">PD</div><div><div class="skill-name">Pydantic</div><div class="skill-level">Saída estruturada</div></div></div>
+      <div class="skill-card"><div class="skill-icon">ML</div><div><div class="skill-name">scikit-learn</div><div class="skill-level">Machine Learning</div></div></div>
+      <div class="skill-card"><div class="skill-icon">HF</div><div><div class="skill-name">Hugging Face</div><div class="skill-level">Transformers · NLP</div></div></div>
+    </div>
+    <div class="deck-controls">
+      <button class="deck-btn" type="button" data-throw="-1" aria-label="Jogar card para a esquerda">‹</button>
+      <span class="deck-counter" id="deck-counter">01 / 13</span>
+      <button class="deck-btn" type="button" data-throw="1" aria-label="Jogar card para a direita">›</button>
+    </div>
+    <p class="deck-hint">Arraste o card para os lados</p>
+    <div class="deck-chips" id="deck-chips"></div>
   </div>
 </section>
 
@@ -480,7 +475,10 @@
 </footer>
 
 <!-- ── ASSISTENTE "PERGUNTE SOBRE A JULIANA" ─────────── -->
-<button class="ask-toggle" id="ask-toggle" aria-controls="ask-panel" aria-expanded="false">✦ Pergunte sobre mim</button>
+<button class="ask-toggle" id="ask-toggle" aria-controls="ask-panel" aria-expanded="false">
+  <span class="ask-toggle-main">✦ Pergunte sobre mim</span>
+  <span class="ask-toggle-sub">Assistente com IA</span>
+</button>
 
 <div class="ask-panel" id="ask-panel" role="dialog" aria-label="Assistente do portfólio">
   <div class="ask-header">
@@ -540,12 +538,21 @@
   }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
   sections.forEach((s) => spyObserver.observe(s));
 
-  // ── Clique no menu: a seção atual some desfocando, a nova aparece e os textos sobem em sequência ──
+  // ── Clique no menu: a seção atual desliza para fora e a nova entra pelo outro lado ──
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const REVEAL_SELECTOR = '.section-label, h2, h3, p, .hero-photo-frame, .sobre-stats, .terminal-wrap, .skill-card, .feat-card, .proj-card, .ia-step, .ia-metric, .ia-decision, .ia-cta, .contact-links, .whatsapp-card';
-  const LEAVE_DURATION = 350;
-  const ENTER_CLEANUP = 1600;
+  const REVEAL_SELECTOR = '.section-label, h2, h3, p, .hero-photo-frame, .sobre-stats, .terminal-wrap, .skills-play, .feat-card, .proj-card, .ia-step, .ia-metric, .ia-decision, .ia-cta, .contact-links, .whatsapp-card';
+  const LEAVE_DURATION = 450;
+  const ENTER_CLEANUP = 1700;
+  const sectionList = [...sections];
   let isChangingSection = false;
+
+  function currentSection() {
+    const middle = window.innerHeight / 2;
+    return sectionList.find((s) => {
+      const rect = s.getBoundingClientRect();
+      return rect.top <= middle && rect.bottom >= middle;
+    }) || sectionList[0];
+  }
 
   function revealItems(section) {
     const items = [...section.querySelectorAll(REVEAL_SELECTOR)]
@@ -561,15 +568,15 @@
 
     const items = revealItems(section);
     items.forEach((el, i) => {
-      el.style.setProperty('--reveal-delay', `${Math.min(i, 10) * 70}ms`);
-      el.classList.add('reveal-up');
+      el.style.setProperty('--reveal-delay', `${Math.min(i, 10) * 80}ms`);
+      el.classList.add('reveal-side');
     });
     section.classList.add('section-enter');
 
     setTimeout(() => {
       section.classList.remove('section-enter');
       items.forEach((el) => {
-        el.classList.remove('reveal-up');
+        el.classList.remove('reveal-side');
         el.style.removeProperty('--reveal-delay');
       });
     }, ENTER_CLEANUP);
@@ -589,7 +596,10 @@
       if (isChangingSection) return;
       isChangingSection = true;
 
+      const goingBack = sectionList.indexOf(target) < sectionList.indexOf(currentSection());
+      document.body.style.setProperty('--slide-dir', goingBack ? -1 : 1);
       document.body.classList.add('page-leaving');
+
       setTimeout(() => {
         const top = target.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({ top, behavior: 'instant' });
@@ -599,6 +609,153 @@
       }, LEAVE_DURATION);
     });
   });
+
+  // ── Baralho de habilidades: arraste ou use as setas para jogar o card de cima para os lados ──
+  const deck = document.getElementById('skills-deck');
+  const deckCards = [...deck.querySelectorAll('.skill-card')];
+  const deckCounter = document.getElementById('deck-counter');
+  const deckChips = document.getElementById('deck-chips');
+  const VISIBLE_IN_STACK = 4;
+  const THROW_DISTANCE = 90;
+  let deckOrder = deckCards.map((_, i) => i);
+  let isThrowing = false;
+
+  deckCards.forEach((card, i) => {
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'deck-chip';
+    chip.textContent = card.querySelector('.skill-name').textContent;
+    chip.addEventListener('click', () => bringToTop(i));
+    deckChips.appendChild(chip);
+  });
+
+  function renderDeck() {
+    deckOrder.forEach((cardIndex, position) => {
+      const card = deckCards[cardIndex];
+      const hidden = position >= VISIBLE_IN_STACK;
+      card.style.zIndex = deckCards.length - position;
+      card.style.transform = `translateY(${Math.min(position, VISIBLE_IN_STACK) * 12}px) scale(${1 - Math.min(position, VISIBLE_IN_STACK) * 0.05})`;
+      card.style.opacity = hidden ? '0' : '1';
+      card.classList.toggle('is-top', position === 0);
+    });
+    const top = deckOrder[0];
+    deckCounter.textContent = `${String(top + 1).padStart(2, '0')} / ${deckCards.length}`;
+    [...deckChips.children].forEach((chip, i) => chip.classList.toggle('active', i === top));
+  }
+
+  function throwTop(direction) {
+    if (isThrowing) return;
+    isThrowing = true;
+    const card = deckCards[deckOrder[0]];
+    card.classList.remove('is-dragging');
+    card.style.transform = `translateX(${direction * 140}%) rotate(${direction * 24}deg)`;
+    card.style.opacity = '0';
+    setTimeout(() => {
+      deckOrder.push(deckOrder.shift());
+      renderDeck();
+      isThrowing = false;
+    }, 380);
+  }
+
+  function bringToTop(cardIndex) {
+    deckOrder = [cardIndex, ...deckOrder.filter((i) => i !== cardIndex)];
+    renderDeck();
+  }
+
+  let dragStartX = null;
+  deck.addEventListener('pointerdown', (e) => {
+    const card = deckCards[deckOrder[0]];
+    if (isThrowing || !card.contains(e.target)) return;
+    dragStartX = e.clientX;
+    card.classList.add('is-dragging');
+    card.setPointerCapture(e.pointerId);
+  });
+  deck.addEventListener('pointermove', (e) => {
+    if (dragStartX === null) return;
+    const dx = e.clientX - dragStartX;
+    deckCards[deckOrder[0]].style.transform = `translateX(${dx}px) rotate(${dx / 14}deg)`;
+  });
+  deck.addEventListener('pointerup', (e) => {
+    if (dragStartX === null) return;
+    const dx = e.clientX - dragStartX;
+    dragStartX = null;
+    deckCards[deckOrder[0]].classList.remove('is-dragging');
+    if (Math.abs(dx) > THROW_DISTANCE) throwTop(Math.sign(dx));
+    else renderDeck();
+  });
+  deck.addEventListener('pointercancel', () => {
+    dragStartX = null;
+    deckCards[deckOrder[0]].classList.remove('is-dragging');
+    renderDeck();
+  });
+  deck.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') throwTop(-1);
+    if (e.key === 'ArrowRight') throwTop(1);
+  });
+  document.querySelectorAll('.deck-btn').forEach((btn) => {
+    btn.addEventListener('click', () => throwTop(Number(btn.dataset.throw)));
+  });
+  renderDeck();
+
+  // ── Título do início sendo digitado, letra por letra ──
+  function typeTitle(title) {
+    const walker = document.createTreeWalker(title, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    while (walker.nextNode()) textNodes.push({ node: walker.currentNode, text: walker.currentNode.textContent });
+    textNodes.forEach((item) => { item.node.textContent = ''; });
+
+    const caret = document.createElement('span');
+    caret.className = 'type-caret';
+    caret.setAttribute('aria-hidden', 'true');
+    title.appendChild(caret);
+
+    let nodeIndex = 0, charIndex = 0;
+    function typeNext() {
+      const item = textNodes[nodeIndex];
+      if (!item) return;
+      item.node.textContent = item.text.slice(0, ++charIndex);
+      if (charIndex >= item.text.length) { nodeIndex++; charIndex = 0; }
+      setTimeout(typeNext, 65);
+    }
+    setTimeout(typeNext, 500);
+  }
+
+  // ── Texto do "Sobre mim" aparecendo palavra por palavra, como se estivesse sendo escrito ──
+  function prepareWriting(paragraphs) {
+    let wordIndex = 0;
+    paragraphs.forEach((p) => {
+      [...p.childNodes].forEach((child) => {
+        if (child.nodeType !== Node.TEXT_NODE) return;
+        const fragment = document.createDocumentFragment();
+        child.textContent.split(/(\s+)/).forEach((piece) => {
+          if (!piece.trim()) {
+            fragment.appendChild(document.createTextNode(piece));
+            return;
+          }
+          const span = document.createElement('span');
+          span.className = 'write-word';
+          span.style.setProperty('--w', wordIndex++);
+          span.textContent = piece;
+          fragment.appendChild(span);
+        });
+        child.replaceWith(fragment);
+      });
+    });
+  }
+
+  if (!prefersReducedMotion.matches) {
+    typeTitle(document.querySelector('.hero-right h1'));
+
+    const sobreText = document.querySelector('#sobre > div');
+    prepareWriting([...sobreText.querySelectorAll(':scope > p')]);
+    const writingObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        sobreText.classList.add('writing');
+        writingObserver.disconnect();
+      }
+    }, { threshold: 0.2 });
+    writingObserver.observe(sobreText);
+  }
 
   function moveCarousel(e, btn, dir) {
     e.preventDefault();
