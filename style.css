@@ -54,12 +54,21 @@ nav {
 .nav-links .btn-nav:hover { background: var(--gold); color: var(--black) !important; box-shadow: 0 0 24px rgba(140,106,34,0.35); }
 .nav-links .btn-nav.active { background: var(--gold); color: var(--black) !important; }
 
-/* ── DESTAQUE DE SEÇÃO AO NAVEGAR ────────────── */
-.section-flash { animation: sectionFlash 1.3s ease; }
-@keyframes sectionFlash {
- 0%   { box-shadow: inset 0 0 0 0 rgba(140,106,34,0); }
- 25%  { box-shadow: inset 0 0 110px 0 rgba(140,106,34,0.10); }
- 100% { box-shadow: inset 0 0 0 0 rgba(140,106,34,0); }
+/* ── TROCA DE SEÇÃO PELO MENU ────────────────── */
+body.page-leaving > section,
+body.page-leaving > footer {
+ opacity: 0; filter: blur(14px); transform: scale(.985);
+ transition: opacity .35s ease, filter .35s ease, transform .35s ease;
+}
+.section-enter { animation: sectionBlurIn .6s cubic-bezier(.22,.68,0,1) both; }
+@keyframes sectionBlurIn {
+ from { opacity: 0; filter: blur(14px); }
+ to   { opacity: 1; filter: none; }
+}
+.reveal-up { animation: revealUp .7s cubic-bezier(.22,.68,0,1) both; animation-delay: var(--reveal-delay, 0ms); }
+@keyframes revealUp {
+ from { opacity: 0; transform: translateY(28px); }
+ to   { opacity: 1; transform: none; }
 }
 
 /* ── HERO ────────────────────────────────────── */
