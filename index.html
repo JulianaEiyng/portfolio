@@ -540,19 +540,63 @@
   }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
   sections.forEach((s) => spyObserver.observe(s));
 
-  // ── Clique no menu: rolagem suave + destaque momentâneo na seção ──
+  // ── Clique no menu: a seção atual some desfocando, a nova aparece e os textos sobem em sequência ──
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const REVEAL_SELECTOR = '.section-label, h2, h3, p, .hero-photo-frame, .sobre-stats, .terminal-wrap, .skill-card, .feat-card, .proj-card, .ia-step, .ia-metric, .ia-decision, .ia-cta, .contact-links, .whatsapp-card';
+  const LEAVE_DURATION = 350;
+  const ENTER_CLEANUP = 1600;
+  let isChangingSection = false;
+
+  function revealItems(section) {
+    const items = [...section.querySelectorAll(REVEAL_SELECTOR)]
+      .filter((el) => getComputedStyle(el).animationName === 'none');
+    return items.filter((el) => !items.some((other) => other !== el && other.contains(el)));
+  }
+
+  function enterSection(section) {
+    section.querySelectorAll('.fade-in').forEach((el) => {
+      el.classList.add('visible');
+      observer.unobserve(el);
+    });
+
+    const items = revealItems(section);
+    items.forEach((el, i) => {
+      el.style.setProperty('--reveal-delay', `${Math.min(i, 10) * 70}ms`);
+      el.classList.add('reveal-up');
+    });
+    section.classList.add('section-enter');
+
+    setTimeout(() => {
+      section.classList.remove('section-enter');
+      items.forEach((el) => {
+        el.classList.remove('reveal-up');
+        el.style.removeProperty('--reveal-delay');
+      });
+    }, ENTER_CLEANUP);
+  }
+
   navLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
-      const targetId = link.getAttribute('href');
-      const target = document.querySelector(targetId);
+      const target = document.querySelector(link.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      target.classList.remove('section-flash');
-      void target.offsetWidth; // reinicia a animação se clicado de novo
-      target.classList.add('section-flash');
-      setTimeout(() => target.classList.remove('section-flash'), 1300);
       document.querySelector('.nav-links').classList.remove('open');
+
+      if (prefersReducedMotion.matches) {
+        target.scrollIntoView({ block: 'start' });
+        return;
+      }
+      if (isChangingSection) return;
+      isChangingSection = true;
+
+      document.body.classList.add('page-leaving');
+      setTimeout(() => {
+        const top = target.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top, behavior: 'instant' });
+        document.body.classList.remove('page-leaving');
+        enterSection(target);
+        isChangingSection = false;
+      }, LEAVE_DURATION);
     });
   });
 
