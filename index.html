@@ -127,7 +127,7 @@
 <section id="habilidades">
   <p class="section-label fade-in">Tecnologias</p>
   <h2 class="section-title fade-in">Minhas <span>habilidades</span></h2>
-  <div class="skills-grid">
+  <div class="skills-grid stagger">
     <a href="https://www.python.org/" target="_blank" class="skill-card fade-in"><div class="skill-icon">PY</div><div><div class="skill-name">Python</div><div class="skill-level">Linguagem principal</div></div></a>
     <a href="https://www.djangoproject.com/" target="_blank" class="skill-card fade-in"><div class="skill-icon">DJ</div><div><div class="skill-name">Django</div><div class="skill-level">Backend</div></div></a>
     <a href="https://www.django-rest-framework.org/" target="_blank" class="skill-card fade-in"><div class="skill-icon">RF</div><div><div class="skill-name">Django REST Framework</div><div class="skill-level">APIs</div></div></a>
@@ -137,7 +137,7 @@
     <a href="https://fastapi.tiangolo.com/" target="_blank" class="skill-card fade-in"><div class="skill-icon">FA</div><div><div class="skill-name">FastAPI</div><div class="skill-level">Backend</div></div></a>
     <a href="https://www.postgresql.org/" target="_blank" class="skill-card fade-in"><div class="skill-icon">PG</div><div><div class="skill-name">PostgreSQL</div><div class="skill-level">Banco de dados</div></div></a>
     <a href="https://github.com/JulianaEiyng" target="_blank" class="skill-card fade-in"><div class="skill-icon">GIT</div><div><div class="skill-name">Git & GitHub</div><div class="skill-level">Versionamento</div></div></a>
-    <a href="https://github.com/JulianaEiyng/my-language-study-notebook" target="_blank" class="skill-card fade-in"><div class="skill-icon">AI</div><div><div class="skill-name">LLMs & RAG</div><div class="skill-level">IA generativa</div></div></a>
+    <a href="https://mlsn-demo-web.onrender.com" target="_blank" class="skill-card fade-in"><div class="skill-icon">AI</div><div><div class="skill-name">LLMs & RAG</div><div class="skill-level">IA generativa</div></div></a>
     <a href="https://docs.pydantic.dev/" target="_blank" class="skill-card fade-in"><div class="skill-icon">PD</div><div><div class="skill-name">Pydantic</div><div class="skill-level">Saída estruturada</div></div></a>
     <a href="https://scikit-learn.org/" target="_blank" class="skill-card fade-in"><div class="skill-icon">ML</div><div><div class="skill-name">scikit-learn</div><div class="skill-level">Machine Learning</div></div></a>
     <a href="https://huggingface.co/" target="_blank" class="skill-card fade-in"><div class="skill-icon">HF</div><div><div class="skill-name">Hugging Face</div><div class="skill-level">Transformers · NLP</div></div></a>
@@ -200,10 +200,10 @@
     </div>
   </a>
 
-  <div class="portfolio-grid">
+  <div class="portfolio-grid stagger">
 
     <!-- My Language Study Notebook -->
-    <a href="https://github.com/JulianaEiyng/my-language-study-notebook" target="_blank" class="proj-card fade-in">
+    <a href="https://mlsn-demo-web.onrender.com" target="_blank" class="proj-card fade-in">
       <div class="browser-bar">
         <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
         <span class="browser-url">mlsn-demo-web.onrender.com</span>
@@ -220,11 +220,11 @@
         <div class="carousel-dots">
           <span class="active"></span><span></span><span></span><span></span>
         </div>
-        <div class="carousel-hover">↗ Ver no GitHub</div>
+        <div class="carousel-hover">↗ Ver demonstração</div>
       </div>
       <div class="proj-body">
         <p class="proj-tag">IA Generativa · RAG · Machine Learning</p>
-        <p class="proj-name">My Language Study Notebook</p>
+        <p class="proj-name">My Language Study Notebook <span class="badge-privado">🔒 Código privado</span></p>
         <p class="proj-desc">Caderno de estudos de idiomas com IA: tutor com RAG que responde só com o que foi estudado, citando a aula, flashcards gerados por LLM com saída validada por Pydantic, avaliação de pronúncia e um modelo de esquecimento treinado com 949 mil sessões de revisão do Duolingo. Cada recurso de IA tem evals com métricas.</p>
         <div class="proj-techs">
           <span class="tech-tag">React</span>
@@ -365,9 +365,75 @@
   </div>
 </section>
 
+<!-- ── COMO EU CONSTRUO COM IA ───────────────────────── -->
+<section id="ia">
+  <p class="section-label fade-in">Como eu construo com IA</p>
+  <h2 class="section-title fade-in">Por dentro do <span>tutor com RAG</span></h2>
+  <p class="ia-intro fade-in">O tutor do My Language Study Notebook responde só com o que foi estudado. Este é o caminho de cada pergunta:</p>
+
+  <div class="ia-flow stagger">
+    <div class="ia-step fade-in">
+      <span class="ia-step-num">01</span>
+      <p class="ia-step-title">Pergunta</p>
+      <p class="ia-step-text">A pessoa escreve ou fala no idioma escolhido.</p>
+    </div>
+    <div class="ia-step fade-in">
+      <span class="ia-step-num">02</span>
+      <p class="ia-step-title">Busca por significado</p>
+      <p class="ia-step-text">Embeddings encontram as anotações mais próximas da pergunta.</p>
+    </div>
+    <div class="ia-step fade-in">
+      <span class="ia-step-num">03</span>
+      <p class="ia-step-title">Resposta com LLM</p>
+      <p class="ia-step-text">O modelo responde usando apenas os trechos encontrados.</p>
+    </div>
+    <div class="ia-step fade-in">
+      <span class="ia-step-num">04</span>
+      <p class="ia-step-title">Cita a aula</p>
+      <p class="ia-step-text">A resposta mostra de qual aula veio a explicação.</p>
+    </div>
+  </div>
+
+  <div class="ia-metrics stagger">
+    <div class="ia-metric fade-in">
+      <span class="ia-metric-num">0,95</span>
+      <span class="ia-metric-label">recall@3 na busca por significado</span>
+    </div>
+    <div class="ia-metric fade-in">
+      <span class="ia-metric-num">1,00</span>
+      <span class="ia-metric-label">tutor cita a aula certa e recusa temas fora das notas</span>
+    </div>
+    <div class="ia-metric fade-in">
+      <span class="ia-metric-num">949 mil</span>
+      <span class="ia-metric-label">revisões no treino do modelo de esquecimento</span>
+    </div>
+  </div>
+  <p class="ia-note fade-in">Evals com poucos casos: servem para perceber quando algo piora, não como comparação entre modelos.</p>
+
+  <div class="ia-decisions stagger">
+    <div class="ia-decision fade-in">
+      <p class="ia-decision-title">Uma porta só para a IA</p>
+      <p class="ia-decision-text">Rotas e serviços nunca chamam um provedor diretamente. O provedor é escolhido na configuração.</p>
+    </div>
+    <div class="ia-decision fade-in">
+      <p class="ia-decision-title">Saída estruturada</p>
+      <p class="ia-decision-text">Toda resposta de LLM é JSON validado com Pydantic, com uma segunda tentativa antes de falhar.</p>
+    </div>
+    <div class="ia-decision fade-in">
+      <p class="ia-decision-title">A IA erra; a pessoa decide</p>
+      <p class="ia-decision-text">Rascunhos gerados pela IA só são salvos depois da revisão humana.</p>
+    </div>
+  </div>
+
+  <div class="ia-cta fade-in">
+    <a href="https://mlsn-demo-web.onrender.com" target="_blank" class="btn-ghost">Testar a demonstração ↗</a>
+    <p class="ia-cta-note">Na demonstração, a IA fica desligada para não gastar cota gratuita. O primeiro acesso pode levar até 2 minutos.</p>
+  </div>
+</section>
+
 <!-- ── CONTATO ───────────────────────────────────────── -->
 <section id="contato">
-  <div class="fade-in">
+  <div class="fade-in from-left">
     <p class="section-label">Contato</p>
     <h2>Vamos <span>conversar?</span></h2>
     <p>Estou em busca de estágio ou vaga júnior em Engenharia de Software com foco em IA. Se você tem uma oportunidade ou quer trocar uma ideia, me chama no WhatsApp!</p>
@@ -390,10 +456,10 @@
       </a>
     </div>
   </div>
-  <div class="fade-in contato-whatsapp">
+  <div class="fade-in from-right contato-whatsapp">
     <div class="whatsapp-card">
       <div class="whatsapp-icon">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="#25D366">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="#25D366">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
           <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.555 4.122 1.526 5.855L.057 23.928a.5.5 0 0 0 .614.614l6.073-1.469A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.938a9.9 9.9 0 0 1-5.031-1.371l-.361-.214-3.741.906.922-3.741-.235-.374A9.938 9.938 0 0 1 2.063 12C2.063 6.509 6.509 2.063 12 2.063S21.938 6.509 21.938 12 17.491 21.938 12 21.938z"/>
         </svg>
@@ -415,9 +481,20 @@
 
 <!-- ── SCRIPTS ───────────────────────────────────────── -->
 <script>
+  // ── Entrada em sequência: cada card de um grupo .stagger entra um pouco depois do anterior ──
+  document.querySelectorAll('.stagger').forEach((group) => {
+    [...group.children].forEach((child, i) => {
+      child.style.transitionDelay = `${Math.min(i, 8) * 90}ms`;
+      child.addEventListener('transitionend', () => { child.style.transitionDelay = ''; }, { once: true });
+    });
+  });
+
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
