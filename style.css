@@ -1,500 +1,836 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juliana Eiyng — Engenharia de Software com foco em IA</title>
+  <meta property="og:title" content="Juliana Eiyng — Engenharia de Software com foco em IA" />
+<meta property="og:description" content="Engenharia de Software com foco em IA: CRM em produção e projetos com RAG, LLMs e machine learning." />
+<meta property="og:image" content="https://julianaeiyng.github.io/portfolio/imagens/A7A28D5F-93E4-4601-8E51-0961DB8B540A.png" />
+<meta property="og:url" content="https://julianaeiyng.github.io/portfolio/" />
+<meta property="og:type" content="website" />
 
-:root {
- --gold:     #8C6A22;
- --gold-lt:  #B8934A;
- --gold-dim: #3D2C0D;
- --black:    #0A0908;
- --dark2:    #131110;
- --dark3:    #1B1815;
- --gray:     #9C9488;
- --gray-lt:  #CFC8BA;
- --cream:    #F2ECDD;
- --card:     #171310;
- --font-display: 'Playfair Display', serif;
- --font-body: 'Inter', sans-serif;
-}
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-html { scroll-behavior: smooth; }
-body { font-family: var(--font-body); background: var(--black); color: var(--cream); overflow-x: hidden; }
+<!-- ── NAV ─────────────────────────────────────────── -->
+<nav>
+  <a href="#inicio" class="logo">Juliana <span>Eiyng</span></a>
+  <ul class="nav-links">
+    <li><a href="#inicio" data-section="inicio">Início</a></li>
+    <li><a href="#sobre" data-section="sobre">Sobre mim</a></li>
+    <li><a href="#habilidades" data-section="habilidades">Habilidades</a></li>
+    <li><a href="#portfolio" data-section="portfolio">Portfólio</a></li>
+    <li><a href="#contato" data-section="contato" class="btn-nav">Contato</a></li>
+  </ul>
+  <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
-}
+<!-- ── HERO ─────────────────────────────────────────── -->
+<section id="inicio">
+  <div class="hero-glow"></div>
+  <div class="hero-left">
+    <div class="hero-photo-frame">
+      <img src="imagens/ju.jpg" class="hero-photo" alt="Juliana Eiyng" />
+    </div>
+  </div>
+  <div class="hero-right">
+    <span class="hero-tag">Engenharia de Software com foco em IA · Estágio ou júnior</span>
+    <h1>Código com<br/><span>propósito real.</span></h1>
+    <p class="hero-sub">
+      Construo sistemas que resolvem problemas reais e integro IA a eles: RAG, LLMs com saída estruturada, avaliação de modelos e machine learning. Busco estágio ou vaga júnior em Engenharia de Software com foco em IA.
+    </p>
+    <div class="hero-btns">
+      <a href="#portfolio" class="btn-primary"><span>Ver projetos</span></a>
+      <a href="#contato" class="btn-ghost">Entre em contato</a>
+    </div>
+  </div>
+</section>
 
-/* ── NAV ─────────────────────────────────────── */
-nav {
- position: fixed; top: 0; left: 0; right: 0; z-index: 100;
- display: flex; align-items: center; justify-content: space-between;
- padding: 0 5%; height: 72px;
- background: rgba(10,9,8,0.88); backdrop-filter: blur(14px);
- border-bottom: 1px solid rgba(140,106,34,0.16);
- opacity: 0; animation: navFadeIn .7s ease forwards;
-}
-@keyframes navFadeIn {
- from { opacity: 0; transform: translateY(-10px); }
- to   { opacity: 1; transform: none; }
-}
-.logo { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--cream); text-decoration: none; white-space: nowrap; animation: logoIn .8s cubic-bezier(.22,.68,0,1) .1s both; }
-.logo span {
- background: linear-gradient(100deg, var(--gold) 0%, var(--gold-lt) 40%, #F0D488 50%, var(--gold-lt) 60%, var(--gold) 100%);
- background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
- animation: logoShine 5s ease-in-out infinite;
-}
-@keyframes logoIn {
- from { opacity: 0; transform: translateX(-24px); }
- to   { opacity: 1; transform: none; }
-}
-@keyframes logoShine {
- 0%, 60% { background-position: 100% 0; }
- 100%    { background-position: 0 0; }
-}
-.nav-links li { animation: navItemIn .6s cubic-bezier(.22,.68,0,1) both; }
-.nav-links li:nth-child(1) { animation-delay: .15s; }
-.nav-links li:nth-child(2) { animation-delay: .23s; }
-.nav-links li:nth-child(3) { animation-delay: .31s; }
-.nav-links li:nth-child(4) { animation-delay: .39s; }
-.nav-links li:nth-child(5) { animation-delay: .47s; }
-@keyframes navItemIn {
- from { opacity: 0; transform: translateY(-14px); }
- to   { opacity: 1; transform: none; }
-}
-.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-.nav-links a { position: relative; font-size: 14px; font-weight: 500; color: var(--gray-lt); text-decoration: none; transition: color .2s; }
-.nav-links a:not(.btn-nav)::after {
- content: ''; position: absolute; left: 0; bottom: -6px; width: 0; height: 1px;
- background: var(--gold); transition: width .25s ease;
-}
-.nav-links a:not(.btn-nav):hover::after { width: 100%; }
-.nav-links a:not(.btn-nav).active::after { width: 100%; }
-.nav-links a:hover { color: var(--cream); }
-.nav-links a:not(.btn-nav).active { color: var(--gold-lt); }
-.nav-links .btn-nav { padding: 8px 22px; border: 1px solid var(--gold); border-radius: 6px; color: var(--gold) !important; font-weight: 600; transition: background .2s, color .2s, box-shadow .2s; }
-.nav-links .btn-nav:hover { background: var(--gold); color: var(--black) !important; box-shadow: 0 0 24px rgba(140,106,34,0.35); }
-.nav-links .btn-nav.active { background: var(--gold); color: var(--black) !important; }
+<!-- ── SOBRE ─────────────────────────────────────────── -->
+<section id="sobre">
+  <div class="fade-in">
+    <p class="section-label">Sobre mim</p>
+    <h2>Quem é <span>Juliana?</span></h2>
+    <p>
+      Não vim de uma trajetória linear — e é exatamente isso que me diferencia.
+      Antes da tecnologia, trabalhei na coordenação de uma escola, e foi ali que
+      começou a vontade de transformar processos complexos em ferramentas simples.
+      Hoje encontro na engenharia de software e de IA o lugar onde minha curiosidade,
+      lógica e vontade de criar fazem sentido.
+    </p>
+    <p>
+      Desenvolvo o CRM que a Villa Terra Imobiliária usa no dia a dia com 21 corretores:
+      isolamento de dados entre carteiras, integração com o site da empresa e um assistente
+      de IA exclusivo para o administrador, que responde com base nos dados reais do sistema.
+      É meu primeiro projeto freelance fora do círculo de família
+      e amigos, e ele me ensinou o que nenhum curso ensina: lidar com prazo real,
+      com cliente real e com um sistema que não pode simplesmente parar de funcionar.
+    </p>
+    <p>
+      Em paralelo, construo projetos de IA aplicada, como o My Language Study Notebook:
+      tutor com RAG, flashcards gerados por LLM com validação por Pydantic, um modelo de
+      esquecimento treinado com dados públicos do Duolingo e evals que medem a qualidade
+      de cada recurso. Curso Análise e Desenvolvimento de Sistemas e busco estágio ou vaga
+      júnior em Engenharia de Software com foco em IA — de qualquer forma, quero continuar
+      aprendendo com quem já está mais à frente.
+    </p>
+    <div class="sobre-stats">
+      <div class="stat-card">
+        <div class="stat-num">21</div>
+        <div class="stat-label">Corretores usam meu CRM</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Projetos com IA</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">949 mil</div>
+        <div class="stat-label">Revisões no treino do modelo</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">2026</div>
+        <div class="stat-label">Início do curso de ADS</div>
+      </div>
+    </div>
+  </div>
+  <div class="fade-in">
+    <div class="terminal-wrap">
+      <div class="terminal-bar">
+        <span class="dot-red"></span>
+        <span class="dot-yellow"></span>
+        <span class="dot-green"></span>
+        <span class="terminal-title">juliana@engenharia-de-ia ~ </span>
+      </div>
+      <div class="terminal-body" id="terminal-body"></div>
+    </div>
+  </div>
+</section>
 
-/* ── TROCA DE SEÇÃO PELO MENU: DESLIZE LATERAL ─ */
-body.page-leaving > section,
-body.page-leaving > footer {
- opacity: 0; transform: translateX(calc(var(--slide-dir, 1) * -12vw));
- transition: opacity .45s ease, transform .45s cubic-bezier(.65,0,.35,1);
-}
-.section-enter { animation: sectionSlideIn .75s cubic-bezier(.22,.68,0,1) both; }
-@keyframes sectionSlideIn {
- from { opacity: 0; transform: translateX(calc(var(--slide-dir, 1) * 12vw)); }
- to   { opacity: 1; transform: none; }
-}
-.reveal-side { animation: revealSide .7s cubic-bezier(.22,.68,0,1) both; animation-delay: var(--reveal-delay, 0ms); }
-@keyframes revealSide {
- from { opacity: 0; transform: translateX(calc(var(--slide-dir, 1) * 60px)); }
- to   { opacity: 1; transform: none; }
-}
+<!-- ── HABILIDADES ───────────────────────────────────── -->
+<section id="habilidades">
+  <p class="section-label fade-in">Tecnologias</p>
+  <h2 class="section-title fade-in">Minhas <span>habilidades</span></h2>
+  <div class="skills-play fade-in">
+    <div class="skills-deck" id="skills-deck" tabindex="0" aria-label="Habilidades: arraste o card de cima para os lados">
+      <div class="skill-card"><div class="skill-icon">PY</div><div><div class="skill-name">Python</div><div class="skill-level">Linguagem principal</div></div></div>
+      <div class="skill-card"><div class="skill-icon">DJ</div><div><div class="skill-name">Django</div><div class="skill-level">Backend</div></div></div>
+      <div class="skill-card"><div class="skill-icon">RF</div><div><div class="skill-name">Django REST Framework</div><div class="skill-level">APIs</div></div></div>
+      <div class="skill-card"><div class="skill-icon">JS</div><div><div class="skill-name">JavaScript</div><div class="skill-level">Nível avançado</div></div></div>
+      <div class="skill-card"><div class="skill-icon">RX</div><div><div class="skill-name">React</div><div class="skill-level">Frontend</div></div></div>
+      <div class="skill-card"><div class="skill-icon">TW</div><div><div class="skill-name">Tailwind CSS</div><div class="skill-level">Estilização</div></div></div>
+      <div class="skill-card"><div class="skill-icon">FA</div><div><div class="skill-name">FastAPI</div><div class="skill-level">Backend</div></div></div>
+      <div class="skill-card"><div class="skill-icon">PG</div><div><div class="skill-name">PostgreSQL</div><div class="skill-level">Banco de dados</div></div></div>
+      <div class="skill-card"><div class="skill-icon">DP</div><div><div class="skill-name">Deploy & Cloud</div><div class="skill-level">Render · Azure · Heroku</div></div></div>
+      <div class="skill-card"><div class="skill-icon">GIT</div><div><div class="skill-name">Git & GitHub</div><div class="skill-level">Versionamento</div></div></div>
+      <div class="skill-card"><div class="skill-icon">AI</div><div><div class="skill-name">LLMs & RAG</div><div class="skill-level">IA generativa</div></div></div>
+      <div class="skill-card"><div class="skill-icon">PD</div><div><div class="skill-name">Pydantic</div><div class="skill-level">Saída estruturada</div></div></div>
+      <div class="skill-card"><div class="skill-icon">ML</div><div><div class="skill-name">scikit-learn</div><div class="skill-level">Machine Learning</div></div></div>
+      <div class="skill-card"><div class="skill-icon">HF</div><div><div class="skill-name">Hugging Face</div><div class="skill-level">Transformers · NLP</div></div></div>
+    </div>
+    <div class="deck-controls">
+      <button class="deck-btn" type="button" data-throw="-1" aria-label="Jogar card para a esquerda">‹</button>
+      <span class="deck-counter" id="deck-counter">01 / 14</span>
+      <button class="deck-btn" type="button" data-throw="1" aria-label="Jogar card para a direita">›</button>
+    </div>
+    <p class="deck-hint">Arraste o card para os lados</p>
+    <div class="deck-chips" id="deck-chips"></div>
+  </div>
+</section>
 
-/* ── TEXTO SENDO ESCRITO ─────────────────────── */
-.type-caret {
- display: inline-block; width: 3px; height: .9em; margin-left: 4px; vertical-align: -.05em;
- background: var(--gold-lt); animation: caretBlink 1s steps(1) infinite;
-}
-@keyframes caretBlink { 50% { opacity: 0; } }
-.write-word { opacity: 0; filter: blur(3px); }
-.writing .write-word { animation: writeIn .4s ease forwards; animation-delay: calc(var(--w) * 22ms); }
-@keyframes writeIn { to { opacity: 1; filter: none; } }
+<!-- ── PORTFÓLIO ─────────────────────────────────────── -->
+<section id="portfolio">
+  <p class="section-label fade-in">Projetos</p>
+  <h2 class="section-title fade-in">Meu <span>portfólio</span></h2>
 
-/* ── HERO ────────────────────────────────────── */
-#inicio { position: relative; min-height: 100vh; display: grid; grid-template-columns: 1fr 1.1fr; padding-top: 72px; overflow: hidden; }
-.hero-glow {
- position: absolute; inset: 0; pointer-events: none; z-index: 0;
- background:
-   radial-gradient(480px 480px at 18% 82%, rgba(140,106,34,0.16) 0%, transparent 70%),
-   radial-gradient(380px 380px at 85% 18%, rgba(140,106,34,0.08) 0%, transparent 70%);
- animation: driftGlow 16s ease-in-out infinite alternate;
-}
-@keyframes driftGlow {
- 0%   { transform: translate(0, 0) scale(1); }
- 100% { transform: translate(2%, -3%) scale(1.06); }
-}
-.hero-left { background: transparent; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; min-height: calc(100vh - 72px); z-index: 1; padding: 40px; }
+  <!-- PROJETO EM DESTAQUE — CRM Villa Terra Imobiliária -->
+  <a href="https://github.com/JulianaEiyng" target="_blank" class="feat-card fade-in">
+    <div class="feat-carousel">
+      <div class="browser-bar">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="browser-url">app.villaterraimob.com.br</span>
+      </div>
+      <div class="carousel" data-index="0">
+        <div class="carousel-track">
+          <img src="imagens/villaterra-dashboard-admin.png" alt="CRM Villa Terra — Dashboard Admin" />
+          <img src="imagens/villa-terra-funildenegociação.png" alt="CRM Villa Terra — Funil de Negociação" />
+          <img src="imagens/villaterra-dashboard-corretor.png" alt="CRM Villa Terra — Dashboard Corretor" />
+          <img src="imagens/villaterra-imovel-importardosite.png" alt="CRM Villa Terra — Importar imóvel do site" />
+          <img src="imagens/villaterra-imovel-publico.png" alt="CRM Villa Terra — Página pública do imóvel" />
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(event, this, -1)">‹</button>
+        <button class="carousel-btn next" onclick="moveCarousel(event, this, 1)">›</button>
+        <div class="carousel-dots">
+          <span class="active"></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="carousel-hover">↗ Ver no GitHub</div>
+      </div>
+    </div>
+    <div class="feat-body">
+      <p class="feat-eyebrow">Projeto em destaque · Cliente real</p>
+      <h3 class="feat-title">CRM Villa Terra Imobiliária</h3>
+      <p class="feat-desc">
+        Sistema de gestão interno desenvolvido sob medida para uma imobiliária de Criciúma/SC, em produção
+        e usado diariamente por 21 corretores e pelo administrador. Isolamento total de dados entre carteiras,
+        funil de negociações em Kanban, agendamento de visitas, notificações em tempo real e push, integração
+        bidirecional com o site público da empresa e um assistente de IA com busca por voz, exclusivo para o
+        administrador, que responde com base nos dados reais do CRM.
+      </p>
+      <div class="feat-highlights">
+        <div class="feat-hl"><span class="feat-hl-num">21</span><span class="feat-hl-label">corretores ativos</span></div>
+        <div class="feat-hl"><span class="feat-hl-num">486</span><span class="feat-hl-label">clientes cadastrados</span></div>
+        <div class="feat-hl"><span class="feat-hl-num">2</span><span class="feat-hl-label">perfis de acesso · corretor e admin</span></div>
+      </div>
+      <div class="proj-techs">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Django</span>
+        <span class="tech-tag">PostgreSQL</span>
+        <span class="tech-tag">Chart.js</span>
+        <span class="tech-tag">API da OpenAI</span>
+        <span class="tech-tag">Cloudinary</span>
+        <span class="tech-tag">Render</span>
+      </div>
+      <span class="badge-privado">🔒 Repositório privado</span>
+    </div>
+  </a>
 
-/* Moldura editorial: um contorno dourado deslocado atrás do retrato,
-   em vez da foto a sangria total preenchendo a coluna inteira. */
-.hero-photo-frame { position: relative; width: 100%; max-width: 380px; }
-.hero-photo-frame::before {
- content: ''; position: absolute; inset: 0; z-index: 0;
- border: 1px solid var(--gold);
- border-radius: 18px;
- transform: translate(20px, 20px);
- transition: transform .4s ease;
-}
-.hero-photo-frame:hover::before { transform: translate(14px, 14px); }
-.hero-photo {
- position: relative; z-index: 1; display: block;
- width: 100%; aspect-ratio: 3 / 4; object-fit: cover;
- border-radius: 18px;
- box-shadow: 0 40px 70px rgba(0,0,0,.55);
-}
-.hero-right { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; padding: 80px 6% 80px 7%; background: var(--black); }
-.hero-tag, .hero-right h1, .hero-sub, .hero-btns {
- opacity: 0; animation: heroSlideUp .8s cubic-bezier(.22,.68,0,1.01) forwards;
-}
-.hero-tag       { display: inline-block; margin-bottom: 20px; font-size: 11px; font-weight: 600; letter-spacing: .15em; color: var(--gold-lt); text-transform: uppercase; animation-delay: .1s; }
-.hero-right h1  { animation-delay: .25s; }
-.hero-sub       { animation-delay: .4s; }
-.hero-btns      { animation-delay: .55s; }
-@keyframes heroSlideUp {
- from { opacity: 0; transform: translateY(26px); }
- to   { opacity: 1; transform: none; }
-}
-.hero-right h1 { font-family: var(--font-display); font-size: clamp(2.6rem, 4vw, 3.6rem); font-weight: 800; line-height: 1.12; margin-bottom: 12px; color: var(--cream); }
-.hero-right h1 span:not(.type-caret) { background: linear-gradient(100deg, var(--gold-lt) 0%, var(--gold) 55%, var(--gold-dim) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.hero-sub { font-size: 15px; color: var(--gray); line-height: 1.7; margin-bottom: 40px; max-width: 420px; }
-.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-.btn-primary {
- position: relative; overflow: hidden; padding: 14px 32px;
- background: linear-gradient(100deg, var(--gold-dim), var(--gold) 50%, var(--gold-lt));
- color: #0A0908; font-size: 14px; font-weight: 700; border: none; border-radius: 8px; cursor: pointer;
- text-decoration: none; transition: transform .15s; display: inline-block;
-}
-.btn-primary span { position: relative; z-index: 1; }
-.btn-primary::before {
- content: ''; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
- background: linear-gradient(120deg, transparent, rgba(255,255,255,.55), transparent);
- transform: skewX(-20deg); transition: left .5s ease;
-}
-.btn-primary:hover::before { left: 130%; }
-.btn-primary:hover { transform: translateY(-2px); }
-.btn-ghost { padding: 14px 32px; background: transparent; color: var(--cream); font-size: 14px; font-weight: 600; border: 1px solid rgba(242,236,221,.2); border-radius: 8px; cursor: pointer; text-decoration: none; transition: border-color .2s, transform .15s, color .2s; display: inline-block; }
-.btn-ghost:hover { border-color: var(--gold); color: var(--gold-lt); transform: translateY(-2px); }
+  <div class="portfolio-grid stagger">
 
-/* ── SOBRE ───────────────────────────────────── */
-#sobre { padding: 100px 8%; display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center; background: var(--dark2); }
-#sobre h2 { font-family: var(--font-display); font-size: clamp(2rem, 3vw, 2.8rem); font-weight: 800; margin-bottom: 20px; }
-#sobre h2 span { color: var(--gold); }
-#sobre p { font-size: 15px; color: var(--gray-lt); line-height: 1.9; margin-bottom: 22px; max-width: 58ch; }
-.sobre-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; max-width: 420px; }
-.stat-card { background: var(--card); border-radius: 10px; padding: 14px 16px; border: 1px solid rgba(140,106,34,0.14); transition: transform .2s, border-color .2s; }
-.stat-card:hover { transform: translateY(-3px); border-color: rgba(140,106,34,0.4); }
-.stat-num { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--gold); line-height: 1; }
-.stat-label { font-size: 11.5px; color: var(--gray); margin-top: 4px; }
+    <!-- My Language Study Notebook -->
+    <a href="https://mlsn-demo-web.onrender.com" target="_blank" class="proj-card fade-in">
+      <div class="browser-bar">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="browser-url">mlsn-demo-web.onrender.com</span>
+      </div>
+      <div class="carousel carousel--contain" data-index="0">
+        <div class="carousel-track">
+          <img src="imagens/lesson-notes.png" alt="My Language Study Notebook — Aula com anotações" />
+          <img src="imagens/tutor.png" alt="My Language Study Notebook — Tutor citando a aula" />
+          <img src="imagens/review-choice.png" alt="My Language Study Notebook — Revisão diária" />
+          <img src="imagens/tutor-demo.gif" alt="My Language Study Notebook — Tutor corrigindo uma frase e citando a aula" />
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(event, this, -1)">‹</button>
+        <button class="carousel-btn next" onclick="moveCarousel(event, this, 1)">›</button>
+        <div class="carousel-dots">
+          <span class="active"></span><span></span><span></span><span></span>
+        </div>
+        <div class="carousel-hover">↗ Ver demonstração</div>
+      </div>
+      <div class="proj-body">
+        <p class="proj-tag">IA Generativa · RAG · Machine Learning</p>
+        <p class="proj-name">My Language Study Notebook <span class="badge-privado">🔒 Código privado</span></p>
+        <p class="proj-desc">Caderno de estudos de idiomas com IA: tutor com RAG que responde só com o que foi estudado, citando a aula, flashcards gerados por LLM com saída validada por Pydantic, avaliação de pronúncia e um modelo de esquecimento treinado com 949 mil sessões de revisão do Duolingo. Cada recurso de IA tem evals com métricas.</p>
+        <div class="proj-techs">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">LLMs</span>
+          <span class="tech-tag">RAG</span>
+          <span class="tech-tag">Machine Learning</span>
+        </div>
+      </div>
+    </a>
 
-/* ── TERMINAL ────────────────────────────────── */
-.terminal-wrap { background: #060605; border: 1px solid rgba(140,106,34,0.22); border-radius: 16px; overflow: hidden; box-shadow: 0 0 60px rgba(140,106,34,0.07); height: 100%; min-height: 440px; display: flex; flex-direction: column; }
-.terminal-bar { background: #121110; padding: 12px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); flex-shrink: 0; }
-.terminal-bar span { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-.dot-red { background: #ff5f57; } .dot-yellow { background: #febc2e; } .dot-green { background: #28c840; }
-.terminal-title { font-size: 12px; color: #4a463f; margin-left: 8px; font-family: monospace; }
-.terminal-body { padding: 20px 24px; flex: 1; font-family: 'Courier New', monospace; font-size: 13.5px; line-height: 1.9; color: #ccc; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
-.t-line { display: block; animation: fadeIn .2s ease; }
-.t-prompt { color: var(--gold); } .t-cmd { color: #ffffff; font-weight: 600; } .t-out { color: #7a756c; padding-left: 14px; }
-.t-gold { color: var(--gold-lt); font-weight: 700; padding-left: 14px; } .t-green { color: #28c840; font-weight: 700; padding-left: 14px; } .t-blue { color: #61dafb; padding-left: 14px; }
-@keyframes fadeIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:none} }
+    <!-- PROJETO 2 — Portfólio Kelvin Eiyng -->
+    <a href="https://github.com/JulianaEiyng/portfolio-kelvin-eiyng" target="_blank" class="proj-card fade-in">
+      <div class="browser-bar">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="browser-url">kelvineiyng.me</span>
+      </div>
+      <div class="carousel carousel--contain" data-index="0">
+        <div class="carousel-track">
+          <img src="imagens/portfolio-kelvin.jpg" alt="Portfólio Kelvin Eiyng" />
+          <img src="imagens/sobre-portfolio-kelvin.jpg" alt="Portfólio Kelvin Eiyng" />
+          <img src="imagens/contatos-portfolio-kelvin.jpg" alt="Portfólio Kelvin Eiyng" />
+          <img src="imagens/portfolio-contato.jpg" alt="Portfólio Kelvin Eiyng" />
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(event, this, -1)">‹</button>
+        <button class="carousel-btn next" onclick="moveCarousel(event, this, 1)">›</button>
+        <div class="carousel-dots">
+          <span class="active"></span><span></span><span></span><span></span>
+        </div>
+        <div class="carousel-hover">↗ Ver no GitHub</div>
+      </div>
+      <div class="proj-body">
+        <p class="proj-tag">HTML5 · CSS3 · Responsivo · Mobile First · Portfólio</p>
+        <p class="proj-name">Portfólio Kelvin Eiyng <span class="badge-privado">🔒 Privado</span></p>
+        <p class="proj-desc">Portfólio profissional desenvolvido para apresentação pessoal de corretor de imóveis, com links diretos para WhatsApp, Instagram e Facebook.</p>
+        <div class="proj-techs">
+          <span class="tech-tag">HTML5</span>
+          <span class="tech-tag">CSS3</span>
+        </div>
+      </div>
+    </a>
 
-/* ── HABILIDADES ─────────────────────────────── */
-#habilidades { padding: 100px 8%; background: var(--black); }
-.section-label { font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: .15em; text-transform: uppercase; margin-bottom: 12px; }
-.section-title { font-family: var(--font-display); font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 800; margin-bottom: 56px; }
-.section-title span { color: var(--gold); }
-/* Baralho de habilidades: o card de cima pode ser arrastado e jogado para os lados */
-.skills-play { display: flex; flex-direction: column; align-items: center; }
-.skills-deck { position: relative; width: min(280px, 100%); height: 150px; margin-bottom: 48px; outline: none; touch-action: pan-y; }
-.skill-card {
- position: absolute; inset: 0;
- background: var(--card); border-radius: 14px; padding: 20px;
- border: 1px solid rgba(140,106,34,.3);
- display: flex; align-items: center; gap: 14px;
- box-shadow: 0 18px 40px rgba(0,0,0,.45);
- user-select: none; will-change: transform;
- transition: transform .45s cubic-bezier(.22,.68,0,1), opacity .45s ease;
-}
-.skill-card.is-top { cursor: grab; border-color: rgba(140,106,34,.6); }
-.skill-card.is-dragging { cursor: grabbing; transition: none; }
-.deck-controls { display: flex; align-items: center; gap: 18px; margin-bottom: 10px; }
-.deck-btn { width: 36px; height: 36px; border-radius: 50%; background: transparent; border: 1px solid rgba(140,106,34,.5); color: var(--gold-lt); font-size: 16px; cursor: pointer; transition: background .2s, color .2s; }
-.deck-btn:hover { background: var(--gold); color: var(--black); }
-.deck-counter { font-family: monospace; font-size: 13px; color: var(--gray-lt); min-width: 64px; text-align: center; }
-.deck-hint { font-size: 12px; color: var(--gray); margin-bottom: 24px; }
-.deck-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; max-width: 640px; }
-.deck-chip { font-family: var(--font-body); font-size: 11.5px; font-weight: 600; padding: 4px 11px; border-radius: 999px; cursor: pointer; background: transparent; border: 1px solid rgba(255,255,255,.1); color: var(--gray); transition: border-color .2s, color .2s; }
-.deck-chip:hover, .deck-chip.active { border-color: var(--gold); color: var(--gold-lt); }
-.skill-icon {
- width: 42px; height: 42px; border-radius: 8px; flex-shrink: 0;
- background: rgba(140,106,34,.14); border: 1px solid rgba(140,106,34,.4);
- display: flex; align-items: center; justify-content: center;
- font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: .02em;
- color: var(--gold-lt);
-}
-.skill-name { font-size: 14px; font-weight: 600; color: var(--cream); }
-.skill-level { font-size: 11px; color: var(--gray); margin-top: 2px; }
+    <!-- NOVO PROJETO — Analisador de Sentimentos de Feedbacks -->
+    <a href="https://github.com/JulianaEiyng/analisador-feedbacks-ia" target="_blank" class="proj-card fade-in">
+      <div class="browser-bar">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="browser-url">juliana-feedbacks-ia.streamlit.app</span>
+      </div>
+      <div class="carousel" data-index="0">
+        <div class="carousel-track">
+          <img src="imagens/analise-de-sentimentos.png" alt="Analisador de Sentimentos de Feedbacks" />
+          <img src="imagens/resumo-de-analise.png" alt="Analisador de Sentimentos de Feedbacks — Resumo da análise" />
+          <img src="imagens/resultados-de-analise.png" alt="Analisador de Sentimentos de Feedbacks — Resultados detalhados" />
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(event, this, -1)">‹</button>
+        <button class="carousel-btn next" onclick="moveCarousel(event, this, 1)">›</button>
+        <div class="carousel-dots">
+          <span class="active"></span><span></span><span></span>
+        </div>
+        <div class="carousel-hover">↗ Ver no GitHub</div>
+      </div>
+      <div class="proj-body">
+        <p class="proj-tag">Python · NLP · Machine Learning · IA</p>
+        <p class="proj-name">Analisador de Sentimentos de Feedbacks</p>
+        <p class="proj-desc">Classifica feedbacks de delivery em português como positivo, neutro ou negativo com um Transformer pré-treinado da Hugging Face, e compara com um classificador TF-IDF + regressão logística que eu treinei: 73,5% de acurácia e 73,27% de macro-F1 em 1.200 textos de teste. Avaliação e limitações documentadas, com testes no GitHub Actions.</p>
+        <div class="proj-techs">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Streamlit</span>
+          <span class="tech-tag">Transformers</span>
+          <span class="tech-tag">PyTorch</span>
+          <span class="tech-tag">scikit-learn</span>
+        </div>
+      </div>
+    </a>
 
-/* ── PORTFÓLIO ────────────────────────────────── */
-#portfolio { padding: 100px 8%; background: var(--dark2); }
+    <!-- PROJETO 3 — Central do Corretor -->
+    <a href="https://github.com/JulianaEiyng/sistema_Kelvin_corretor_imobiliario" target="_blank" class="proj-card fade-in">
+      <div class="browser-bar">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="browser-url">central.corretor.app</span>
+      </div>
+      <div class="carousel" data-index="0">
+        <div class="carousel-track">
+          <img src="imagens/agenda.webp" alt="Central do Corretor" />
+          <img src="imagens/atendimento.webp" alt="Central do Corretor" />
+          <img src="imagens/simulador.webp" alt="Central do Corretor" />
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(event, this, -1)">‹</button>
+        <button class="carousel-btn next" onclick="moveCarousel(event, this, 1)">›</button>
+        <div class="carousel-dots">
+          <span class="active"></span><span></span><span></span>
+        </div>
+        <div class="carousel-hover">↗ Ver no GitHub</div>
+      </div>
+      <div class="proj-body">
+        <p class="proj-tag">Python · Streamlit · Automação</p>
+        <p class="proj-name">Central do Corretor</p>
+        <p class="proj-desc">Sistema completo para corretores com agenda, gestão de atendimentos e simulador financeiro integrado.</p>
+        <div class="proj-techs">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Streamlit</span>
+          <span class="tech-tag">pandas</span>
+        </div>
+      </div>
+    </a>
 
-/* ── CARD EM DESTAQUE (Villa Terra) ──────────── */
-.feat-card {
- position: relative; display: grid; grid-template-columns: 1.05fr 1fr; gap: 0;
- background: var(--card); border-radius: 20px; overflow: hidden; text-decoration: none;
- margin-bottom: 32px; isolation: isolate;
-}
-.feat-card::before {
- content: ''; position: absolute; inset: -2px; z-index: -1; border-radius: 22px;
- background: conic-gradient(from 0deg, var(--gold-dim), var(--gold-lt), var(--gold), var(--gold-dim));
- animation: rotateHalo 7s linear infinite;
-}
-.feat-card::after {
- content: ''; position: absolute; inset: 1px; z-index: -1; border-radius: 19px; background: var(--card);
-}
-@keyframes rotateHalo { to { transform: rotate(360deg); } }
-.feat-carousel { position: relative; display: flex; flex-direction: column; height: 100%; }
-.feat-carousel .carousel { flex: 1; min-height: 280px; aspect-ratio: auto; }
-.feat-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 10px; }
-.feat-title { font-family: var(--font-display); font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 800; color: var(--cream); margin-bottom: 14px; }
-.feat-body { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
-.feat-desc { font-size: 14.5px; color: var(--gray-lt); line-height: 1.75; margin-bottom: 26px; }
-.feat-highlights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; }
-.feat-hl { border-left: 2px solid var(--gold); padding-left: 12px; }
-.feat-hl-num { display: block; font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; color: var(--gold-lt); line-height: 1; }
-.feat-hl-label { display: block; font-size: 11px; color: var(--gray); margin-top: 4px; line-height: 1.4; }
-.feat-body .proj-techs { margin-bottom: 18px; }
-.feat-body .badge-privado { align-self: flex-start; }
+    <!-- PROJETO 6 — Dashboard Salários -->
+    <a href="https://github.com/JulianaEiyng/dashboard-salarios-dados" target="_blank" class="proj-card fade-in">
+      <div class="browser-bar">
+        <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+        <span class="browser-url">dashboard.salarios.data</span>
+      </div>
+      <div class="carousel" data-index="0">
+        <div class="carousel-track">
+          <img src="imagens/graficos.webp" alt="Dashboard Salários" />
+          <img src="imagens/metricas gerais-salario-anual - usd.webp" alt="Dashboard Salários" />
+        </div>
+        <button class="carousel-btn prev" onclick="moveCarousel(event, this, -1)">‹</button>
+        <button class="carousel-btn next" onclick="moveCarousel(event, this, 1)">›</button>
+        <div class="carousel-dots">
+          <span class="active"></span><span></span>
+        </div>
+        <div class="carousel-hover">↗ Ver no GitHub</div>
+      </div>
+      <div class="proj-body">
+        <p class="proj-tag">Python · Análise de Dados</p>
+        <p class="proj-name">Dashboard de Salários</p>
+        <p class="proj-desc">Dashboard interativo para análise de salários na área de dados, com gráficos e métricas detalhadas em USD.</p>
+        <div class="proj-techs">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">pandas</span>
+          <span class="tech-tag">Streamlit</span>
+        </div>
+      </div>
+    </a>
 
-.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-.proj-card { background: var(--card); border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,.06); transition: border-color .2s, transform .2s; text-decoration: none; display: block; }
-.proj-card:hover { border-color: rgba(140,106,34,.4); transform: translateY(-6px); }
+  </div>
+</section>
 
-/* ── JANELA DE NAVEGADOR (chrome do card, no mesmo espírito do terminal) ── */
-.browser-bar {
- display: flex; align-items: center; gap: 8px;
- background: #121110; padding: 10px 14px;
- border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.browser-bar span.dot-red, .browser-bar span.dot-yellow, .browser-bar span.dot-green {
- width: 9px; height: 9px;
-}
-.browser-url {
- margin-left: 8px; font-size: 11px; font-family: monospace;
- color: #6b6659; letter-spacing: .01em;
-}
+<!-- ── COMO EU CONSTRUO COM IA ───────────────────────── -->
+<section id="ia">
+  <p class="section-label fade-in">Como eu construo com IA</p>
+  <h2 class="section-title fade-in">Por dentro do <span>tutor com RAG</span></h2>
+  <p class="ia-intro fade-in">O tutor do My Language Study Notebook responde só com o que foi estudado. Este é o caminho de cada pergunta:</p>
 
-/* ── CARROSSEL ───────────────────────────────── */
-.carousel { position: relative; aspect-ratio: 16/10; overflow: hidden; background: #0a0908; }
-.carousel-track { display: flex; height: 100%; transition: transform .4s ease; }
-.carousel-track img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
-.carousel--contain .carousel-track img { object-fit: contain; }
-.carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; background: rgba(0,0,0,.6); border: 1px solid rgba(140,106,34,.4); color: var(--gold-lt); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: background .2s; }
-.carousel-btn:hover { background: var(--gold); color: #0A0908; }
-.carousel-btn.prev { left: 10px; }
-.carousel-btn.next { right: 10px; }
-.carousel-dots { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; }
-.carousel-dots span { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.3); cursor: pointer; transition: background .2s; }
-.carousel-dots span.active { background: var(--gold); }
-.carousel-hover { position: absolute; inset: 0; z-index: 2; background: rgba(140,106,34,.88); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .3s; font-size: 13px; font-weight: 700; letter-spacing: .1em; color: #0A0908; text-transform: uppercase; pointer-events: none; }
-.proj-card:hover .carousel-hover, .feat-card:hover .carousel-hover { opacity: 1; }
+  <div class="ia-flow stagger">
+    <div class="ia-step fade-in">
+      <span class="ia-step-num">01</span>
+      <p class="ia-step-title">Pergunta</p>
+      <p class="ia-step-text">A pessoa escreve ou fala no idioma escolhido.</p>
+    </div>
+    <div class="ia-step fade-in">
+      <span class="ia-step-num">02</span>
+      <p class="ia-step-title">Busca por significado</p>
+      <p class="ia-step-text">Embeddings encontram as anotações mais próximas da pergunta.</p>
+    </div>
+    <div class="ia-step fade-in">
+      <span class="ia-step-num">03</span>
+      <p class="ia-step-title">Resposta com LLM</p>
+      <p class="ia-step-text">O modelo responde usando apenas os trechos encontrados.</p>
+    </div>
+    <div class="ia-step fade-in">
+      <span class="ia-step-num">04</span>
+      <p class="ia-step-title">Cita a aula</p>
+      <p class="ia-step-text">A resposta mostra de qual aula veio a explicação.</p>
+    </div>
+  </div>
 
-.proj-body { padding: 20px; }
-.proj-tag { font-size: 10px; color: var(--gold); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
-.proj-name { font-size: 17px; font-weight: 700; color: var(--cream); margin-bottom: 6px; }
-.proj-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
-.proj-techs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-.tech-tag { font-size: 11px; font-weight: 600; padding: 3px 10px; background: rgba(140,106,34,.1); border: 1px solid rgba(140,106,34,.28); color: var(--gold-lt); border-radius: 999px; }
+  <div class="ia-metrics stagger">
+    <div class="ia-metric fade-in">
+      <span class="ia-metric-num">0,95</span>
+      <span class="ia-metric-label">recall@3 na busca por significado</span>
+    </div>
+    <div class="ia-metric fade-in">
+      <span class="ia-metric-num">1,00</span>
+      <span class="ia-metric-label">tutor cita a aula certa e recusa temas fora das notas</span>
+    </div>
+    <div class="ia-metric fade-in">
+      <span class="ia-metric-num">949 mil</span>
+      <span class="ia-metric-label">revisões no treino do modelo de esquecimento</span>
+    </div>
+  </div>
+  <p class="ia-note fade-in">Evals com poucos casos: servem para perceber quando algo piora, não como comparação entre modelos.</p>
 
-/* ── BADGE PRIVADO ───────────────────────────── */
-.badge-privado {
- display: inline-block; font-size: 10px; font-weight: 600;
- color: var(--gray-lt); border: 1px solid rgba(140,106,34,.3);
- border-radius: 999px; padding: 3px 10px;
- vertical-align: middle; margin-left: 6px;
-}
+  <div class="ia-decisions stagger">
+    <div class="ia-decision fade-in">
+      <p class="ia-decision-title">Uma porta só para a IA</p>
+      <p class="ia-decision-text">Rotas e serviços nunca chamam um provedor diretamente. O provedor é escolhido na configuração.</p>
+    </div>
+    <div class="ia-decision fade-in">
+      <p class="ia-decision-title">Saída estruturada</p>
+      <p class="ia-decision-text">Toda resposta de LLM é JSON validado com Pydantic, com uma segunda tentativa antes de falhar.</p>
+    </div>
+    <div class="ia-decision fade-in">
+      <p class="ia-decision-title">A IA erra; a pessoa decide</p>
+      <p class="ia-decision-text">Rascunhos gerados pela IA só são salvos depois da revisão humana.</p>
+    </div>
+  </div>
 
-/* ── CARDS EM BREVE ──────────────────────────── */
-.proj-card--soon { opacity: .6; cursor: default; pointer-events: none; }
-.proj-card--soon:hover { border-color: rgba(255,255,255,.06); transform: none; }
-.proj-soon-thumb {
- aspect-ratio: 16/10;
- background: linear-gradient(135deg, #0f0d0b 0%, #1a1408 100%);
- display: flex; flex-direction: column;
- align-items: center; justify-content: center; gap: 10px;
-}
-.proj-soon-icon { font-size: 32px; opacity: .35; }
-.proj-soon-label {
- font-size: 11px; font-weight: 700; letter-spacing: .15em;
- text-transform: uppercase; color: var(--gray);
- border: 1px solid rgba(255,255,255,.1);
- padding: 4px 14px; border-radius: 999px;
-}
+  <div class="ia-cta fade-in">
+    <a href="https://mlsn-demo-web.onrender.com" target="_blank" class="btn-ghost">Testar a demonstração ↗</a>
+    <p class="ia-cta-note">Na demonstração, a IA fica desligada para não gastar cota gratuita. O primeiro acesso pode levar até 2 minutos.</p>
+  </div>
+</section>
 
-/* ── CONTATO ─────────────────────────────────── */
-#contato { padding: 100px 8%; background: var(--black); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-#contato h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 2.5vw, 2.6rem); font-weight: 800; margin-bottom: 16px; }
-#contato h2 span { color: var(--gold); }
-#contato > div:first-child p { font-size: 15px; color: var(--gray); line-height: 1.7; margin-bottom: 32px; }
-.contact-links { display: flex; flex-direction: column; gap: 14px; }
-.contact-link { display: flex; align-items: center; gap: 12px; color: var(--gray-lt); text-decoration: none; font-size: 14px; transition: color .2s; }
-.contact-link:hover { color: var(--gold-lt); }
-.contact-link-icon { width: 38px; height: 38px; border-radius: 8px; background: var(--card); border: 1px solid rgba(140,106,34,.28); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.contact-link-icon svg { width: 17px; height: 17px; fill: var(--gold-lt); }
-.contato-whatsapp { display: flex; align-items: center; justify-content: center; }
-.whatsapp-card { background: var(--card); border: 1px solid rgba(37,211,102,0.2); border-radius: 16px; padding: 28px 24px; text-align: center; max-width: 300px; }
-.whatsapp-icon { margin-bottom: 14px; }
-.whatsapp-card h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--cream); margin-bottom: 8px; }
-.whatsapp-card p { font-size: 13px; color: var(--gray); line-height: 1.6; margin-bottom: 20px; }
-.btn-whatsapp { display: inline-block; padding: 11px 24px; background: #25D366; color: #fff; font-size: 14px; font-weight: 700; border-radius: 8px; text-decoration: none; transition: opacity .2s, transform .15s; }
-.btn-whatsapp:hover { opacity: .88; transform: translateY(-2px); }
+<!-- ── CONTATO ───────────────────────────────────────── -->
+<section id="contato">
+  <div class="fade-in from-left">
+    <p class="section-label">Contato</p>
+    <h2>Vamos <span>conversar?</span></h2>
+    <p>Estou em busca de estágio ou vaga júnior em Engenharia de Software com foco em IA. Se você tem uma oportunidade ou quer trocar uma ideia, me chama no WhatsApp!</p>
+    <div class="contact-links">
+      <a href="mailto:jueiyng@gmail.com" class="contact-link">
+        <div class="contact-link-icon"><svg viewBox="0 0 24 24"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.8 6.2L19.8 6H4.2ZM20 8.1l-7.4 5.9a1 1 0 0 1-1.2 0L4 8.1V18h16V8.1Z"/></svg></div>
+        jueiyng@gmail.com
+      </a>
+      <a href="https://linkedin.com/in/juliana-eiyng" target="_blank" class="contact-link">
+        <div class="contact-link-icon"><svg viewBox="0 0 24 24"><path d="M6.94 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM3.5 8.5h6.9V21H3.5V8.5Zm7.9 0H18v1.7h.1c.6-1 2-2 4-2 4.3 0 5.1 2.5 5.1 5.7V21h-6.9v-6.1c0-1.5 0-3.3-2-3.3-2.1 0-2.4 1.6-2.4 3.2V21h-6.9V8.5Z" transform="scale(0.9) translate(1.2,1)"/></svg></div>
+        linkedin.com/in/juliana-eiyng
+      </a>
+      <a href="https://github.com/JulianaEiyng" target="_blank" class="contact-link">
+        <div class="contact-link-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.2c0 4.5 2.87 8.32 6.84 9.67.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.88-2.78.61-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.9-.63.07-.62.07-.62 1 .07 1.53 1.04 1.53 1.04.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.74 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 2.5-.35c.85 0 1.71.12 2.5.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.43.2 2.48.1 2.74.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.95.68 1.92 0 1.39-.01 2.51-.01 2.85 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.2C22 6.58 17.52 2 12 2Z"/></svg></div>
+        github.com/JulianaEiyng
+      </a>
+      <a href="tel:+5548991297084" class="contact-link">
+        <div class="contact-link-icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.3 2.6 3.4 4.7 6 6l2-2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.8c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1l-2 2.3Z"/></svg></div>
+        (48) 99129-7084
+      </a>
+    </div>
+  </div>
+  <div class="fade-in from-right contato-whatsapp">
+    <div class="whatsapp-card">
+      <div class="whatsapp-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="#25D366">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.555 4.122 1.526 5.855L.057 23.928a.5.5 0 0 0 .614.614l6.073-1.469A11.952 11.952 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.938a9.9 9.9 0 0 1-5.031-1.371l-.361-.214-3.741.906.922-3.741-.235-.374A9.938 9.938 0 0 1 2.063 12C2.063 6.509 6.509 2.063 12 2.063S21.938 6.509 21.938 12 17.491 21.938 12 21.938z"/>
+        </svg>
+      </div>
+      <h3>Bora conversar?</h3>
+      <p>Clique no botão abaixo e me manda uma mensagem direto no WhatsApp. Responderei o mais rápido possível!</p>
+      <a href="https://wa.me/5548991297084?text=Olá%20Juliana!%20Tenho%20uma%20oportunidade%20e%20gostaria%20de%20conversar." target="_blank" class="btn-whatsapp">
+        💬 Falar no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
 
-/* ── COMO EU CONSTRUO COM IA ─────────────────── */
-#ia { padding: 100px 8%; background: var(--black); border-top: 1px solid rgba(140,106,34,.12); border-bottom: 1px solid rgba(140,106,34,.12); }
-#ia .section-title { margin-bottom: 16px; }
-.ia-intro { font-size: 15px; color: var(--gray); line-height: 1.7; max-width: 620px; margin-bottom: 40px; }
+<!-- ── FOOTER ────────────────────────────────────────── -->
+<footer>
+  <p>© 2026 <span>Juliana Eiyng</span>. Todos os direitos reservados.</p>
+  <p>Feito com <span>♥</span> por uma desenvolvedora de software e IA</p>
+</footer>
 
-.ia-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
-.ia-step { position: relative; background: var(--card); border: 1px solid rgba(140,106,34,.22); border-radius: 14px; padding: 22px 20px; }
-.ia-step:not(:last-child)::after {
- content: '→'; position: absolute; right: -14px; top: 50%; transform: translateY(-50%);
- color: var(--gold); font-size: 14px; z-index: 1;
-}
-.ia-step-num { display: block; font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: var(--gold); margin-bottom: 10px; }
-.ia-step-title { font-size: 15px; font-weight: 600; color: var(--cream); margin-bottom: 6px; }
-.ia-step-text { font-size: 13px; color: var(--gray); line-height: 1.6; }
+<!-- ── ASSISTENTE "PERGUNTE SOBRE A JULIANA" ─────────── -->
+<button class="ask-toggle" id="ask-toggle" aria-controls="ask-panel" aria-expanded="false">
+  <span class="ask-toggle-main">✦ Pergunte sobre mim</span>
+  <span class="ask-toggle-sub">Assistente com IA</span>
+</button>
 
-.ia-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 12px; }
-.ia-metric { border-left: 2px solid var(--gold); padding: 6px 0 6px 16px; }
-.ia-metric-num { display: block; font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--gold-lt); line-height: 1.1; }
-.ia-metric-label { display: block; font-size: 12px; color: var(--gray); margin-top: 6px; line-height: 1.5; }
-.ia-note { font-size: 12px; color: #6b6659; margin-bottom: 40px; }
+<div class="ask-panel" id="ask-panel" role="dialog" aria-label="Assistente do portfólio">
+  <div class="ask-header">
+    <div>
+      <p class="ask-title">Pergunte sobre a Juliana</p>
+      <p class="ask-subtitle">Assistente com RAG · responde em português ou inglês</p>
+    </div>
+    <button class="ask-close" id="ask-close" aria-label="Fechar">×</button>
+  </div>
 
-.ia-decisions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 36px; }
-.ia-decision { background: var(--card); border: 1px solid rgba(255,255,255,.06); border-radius: 14px; padding: 22px 20px; }
-.ia-decision-title { font-size: 15px; font-weight: 600; color: var(--gold-lt); margin-bottom: 8px; }
-.ia-decision-text { font-size: 13px; color: var(--gray); line-height: 1.6; }
+  <div class="ask-messages" id="ask-messages" aria-live="polite"></div>
 
-.ia-cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-.ia-cta-note { font-size: 12px; color: #6b6659; max-width: 420px; line-height: 1.6; }
+  <div class="ask-suggestions" id="ask-suggestions">
+    <button class="ask-suggestion" type="button">Ela já trabalhou com RAG?</button>
+    <button class="ask-suggestion" type="button">Fale do CRM em produção</button>
+    <button class="ask-suggestion" type="button">What is she looking for?</button>
+  </div>
 
-/* ── ASSISTENTE "PERGUNTE SOBRE A JULIANA" ───── */
-.ask-toggle {
- position: fixed; right: 24px; bottom: 24px; z-index: 200;
- display: flex; flex-direction: column; align-items: flex-start; gap: 2px;
- padding: 16px 28px; border-radius: 16px; cursor: pointer;
- background: linear-gradient(100deg, var(--gold), var(--gold-lt));
- color: var(--black); border: none; font-family: var(--font-body);
- animation: askGlow 3.2s ease-in-out infinite;
- transition: transform .15s;
-}
-.ask-toggle:hover { transform: translateY(-3px); }
-.ask-toggle-main { font-size: 16px; font-weight: 700; }
-.ask-toggle-sub { font-size: 11.5px; font-weight: 500; opacity: .75; }
-@keyframes askGlow {
- 0%, 100% { box-shadow: 0 8px 24px rgba(0,0,0,.45), 0 0 0 0 rgba(184,147,74,.45); }
- 50%      { box-shadow: 0 8px 24px rgba(0,0,0,.45), 0 0 0 10px rgba(184,147,74,0); }
-}
+  <form class="ask-form" id="ask-form">
+    <input class="ask-input" id="ask-input" maxlength="500" placeholder="Pergunte sobre projetos, stack ou experiência" autocomplete="off" />
+    <button class="ask-send" id="ask-send" type="submit" aria-label="Enviar">↑</button>
+  </form>
+</div>
 
-.ask-panel {
- position: fixed; right: 24px; bottom: 104px; z-index: 200;
- width: min(380px, calc(100vw - 32px)); height: min(520px, calc(100vh - 120px));
- display: flex; flex-direction: column;
- background: var(--black); border: 1px solid rgba(140,106,34,.35); border-radius: 16px; overflow: hidden;
- opacity: 0; transform: translateY(16px); pointer-events: none;
- transition: opacity .25s ease, transform .25s ease;
-}
-.ask-panel.open { opacity: 1; transform: none; pointer-events: auto; }
+<!-- ── SCRIPTS ───────────────────────────────────────── -->
+<script>
+  // ── Entrada em sequência: cada card de um grupo .stagger entra um pouco depois do anterior ──
+  document.querySelectorAll('.stagger').forEach((group) => {
+    [...group.children].forEach((child, i) => {
+      child.style.transitionDelay = `${Math.min(i, 8) * 90}ms`;
+      child.addEventListener('transitionend', () => { child.style.transitionDelay = ''; }, { once: true });
+    });
+  });
 
-.ask-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid rgba(140,106,34,.2); }
-.ask-title { font-size: 14px; font-weight: 600; color: var(--cream); }
-.ask-subtitle { font-size: 11px; color: var(--gray); margin-top: 2px; }
-.ask-close { background: none; border: none; color: var(--gray); font-size: 20px; cursor: pointer; line-height: 1; }
-.ask-close:hover { color: var(--cream); }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-.ask-messages { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
-.ask-msg { max-width: 88%; padding: 10px 12px; border-radius: 12px; font-size: 13px; line-height: 1.55; }
-.ask-msg.user { align-self: flex-end; background: var(--gold-lt); color: #1B1408; }
-.ask-msg.bot { align-self: flex-start; background: var(--card); color: var(--gray-lt); }
-.ask-msg.info { align-self: center; background: none; color: var(--gray); font-size: 12px; text-align: center; }
-.ask-sources { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-.ask-source { font-size: 11px; color: var(--gold-lt); border: 1px solid rgba(140,106,34,.35); border-radius: 999px; padding: 2px 8px; }
+  // ── Scroll-spy: destaca o link do menu conforme a seção visível ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach((link) => {
+          link.classList.toggle('active', link.dataset.section === id);
+        });
+      }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+  sections.forEach((s) => spyObserver.observe(s));
 
-.ask-suggestions { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 16px 10px; }
-.ask-suggestion { font-size: 12px; color: var(--gray-lt); background: none; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; padding: 5px 10px; cursor: pointer; font-family: var(--font-body); }
-.ask-suggestion:hover { border-color: var(--gold); color: var(--gold-lt); }
+  // ── Clique no menu: a seção atual desliza para fora e a nova entra pelo outro lado ──
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const REVEAL_SELECTOR = '.section-label, h2, h3, p, .hero-photo-frame, .sobre-stats, .terminal-wrap, .skills-play, .feat-card, .proj-card, .ia-step, .ia-metric, .ia-decision, .ia-cta, .contact-links, .whatsapp-card';
+  const LEAVE_DURATION = 450;
+  const ENTER_CLEANUP = 1700;
+  const sectionList = [...sections];
+  let isChangingSection = false;
 
-.ask-form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid rgba(140,106,34,.2); }
-.ask-input { flex: 1; background: var(--card); border: 1px solid rgba(255,255,255,.1); border-radius: 10px; padding: 10px 12px; color: var(--cream); font-family: var(--font-body); font-size: 13px; }
-.ask-input:focus { outline: none; border-color: var(--gold); }
-.ask-send { background: var(--gold); color: var(--black); border: none; border-radius: 10px; padding: 0 16px; font-weight: 700; cursor: pointer; }
-.ask-send:disabled { opacity: .5; cursor: wait; }
+  function currentSection() {
+    const middle = window.innerHeight / 2;
+    return sectionList.find((s) => {
+      const rect = s.getBoundingClientRect();
+      return rect.top <= middle && rect.bottom >= middle;
+    }) || sectionList[0];
+  }
 
-@media (max-width: 600px) {
- .ask-toggle { right: 16px; bottom: 16px; }
- .ask-panel { right: 16px; bottom: 92px; }
- .ask-toggle { padding: 12px 20px; }
-}
+  function revealItems(section) {
+    const items = [...section.querySelectorAll(REVEAL_SELECTOR)]
+      .filter((el) => getComputedStyle(el).animationName === 'none');
+    return items.filter((el) => !items.some((other) => other !== el && other.contains(el)));
+  }
 
-/* ── FOOTER ──────────────────────────────────── */
-footer { padding: 32px 8%; background: var(--dark2); display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.06); flex-wrap: wrap; gap: 12px; }
-footer p { font-size: 13px; color: var(--gray); }
-footer span { color: var(--gold); }
+  function enterSection(section) {
+    section.querySelectorAll('.fade-in').forEach((el) => {
+      el.classList.add('visible');
+      observer.unobserve(el);
+    });
 
-/* ── ANIMAÇÕES ───────────────────────────────── */
-.fade-in { opacity: 0; transform: translateY(40px); transition: opacity .8s cubic-bezier(.22,.68,0,1), transform .8s cubic-bezier(.22,.68,0,1); }
-.fade-in.from-left  { transform: translateX(-48px); }
-.fade-in.from-right { transform: translateX(48px); }
-.fade-in.visible { opacity: 1; transform: none; }
+    const items = revealItems(section);
+    items.forEach((el, i) => {
+      el.style.setProperty('--reveal-delay', `${Math.min(i, 10) * 80}ms`);
+      el.classList.add('reveal-side');
+    });
+    section.classList.add('section-enter');
 
-@media (prefers-reduced-motion: reduce) {
- .fade-in, .fade-in.from-left, .fade-in.from-right { opacity: 1; transform: none; }
-}
+    setTimeout(() => {
+      section.classList.remove('section-enter');
+      items.forEach((el) => {
+        el.classList.remove('reveal-side');
+        el.style.removeProperty('--reveal-delay');
+      });
+    }, ENTER_CLEANUP);
+  }
 
-/* ── MENU HAMBURGUER ─────────────────────────── */
-.menu-toggle {
- display: none;
- background: transparent;
- border: none;
- color: var(--cream);
- font-size: 24px;
- cursor: pointer;
- padding: 4px 8px;
-}
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      document.querySelector('.nav-links').classList.remove('open');
 
-/* ── RESPONSIVE ──────────────────────────────── */
-@media (max-width: 900px) {
- #inicio { grid-template-columns: 1fr; min-height: auto; }
- .hero-left { min-height: auto; padding: 60px 40px 20px; }
- .hero-photo-frame { max-width: 320px; }
- .hero-right { padding: 60px 6%; }
- #sobre, #contato { grid-template-columns: 1fr; gap: 48px; }
- .nav-links { gap: 20px; }
- .feat-card { grid-template-columns: 1fr; }
- .feat-highlights { grid-template-columns: repeat(3, 1fr); }
- .ia-flow { grid-template-columns: 1fr 1fr; }
- .ia-step:not(:last-child)::after { display: none; }
- .ia-decisions { grid-template-columns: 1fr; }
-}
-@media (max-width: 600px) {
- nav { padding: 0 4%; }
+      if (prefersReducedMotion.matches) {
+        target.scrollIntoView({ block: 'start' });
+        return;
+      }
+      if (isChangingSection) return;
+      isChangingSection = true;
 
- /* Menu hamburguer */
- .menu-toggle { display: block; }
- .nav-links {
-   display: none;
-   position: absolute;
-   top: 72px; left: 0; right: 0;
-   background: rgba(10,9,8,0.97);
-   flex-direction: column;
-   padding: 20px;
-   gap: 16px;
- }
- .nav-links.open { display: flex; }
- .nav-links li { display: block !important; }
+      const goingBack = sectionList.indexOf(target) < sectionList.indexOf(currentSection());
+      document.body.style.setProperty('--slide-dir', goingBack ? -1 : 1);
+      document.body.classList.add('page-leaving');
 
- /* Hero mobile */
- #inicio { grid-template-columns: 1fr; min-height: auto; }
- .hero-left {
-   order: -1;
-   padding: 40px 24px 10px;
- }
- .hero-photo-frame { max-width: 240px; }
- .hero-photo-frame::before { transform: translate(12px, 12px); }
- .hero-right { padding: 40px 5%; }
+      setTimeout(() => {
+        const top = target.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top, behavior: 'instant' });
+        document.body.classList.remove('page-leaving');
+        enterSection(target);
+        isChangingSection = false;
+      }, LEAVE_DURATION);
+    });
+  });
 
- #inicio, #sobre, #habilidades, #portfolio, #ia, #contato { padding-left: 5%; padding-right: 5%; }
- .ia-flow, .ia-metrics { grid-template-columns: 1fr; }
- .feat-body { padding: 26px; }
- .feat-highlights { grid-template-columns: 1fr 1fr; }
-}
+  // ── Baralho de habilidades: arraste ou use as setas para jogar o card de cima para os lados ──
+  const deck = document.getElementById('skills-deck');
+  const deckCards = [...deck.querySelectorAll('.skill-card')];
+  const deckCounter = document.getElementById('deck-counter');
+  const deckChips = document.getElementById('deck-chips');
+  const VISIBLE_IN_STACK = 4;
+  const THROW_DISTANCE = 90;
+  let deckOrder = deckCards.map((_, i) => i);
+  let isThrowing = false;
+
+  deckCards.forEach((card, i) => {
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'deck-chip';
+    chip.textContent = card.querySelector('.skill-name').textContent;
+    chip.addEventListener('click', () => bringToTop(i));
+    deckChips.appendChild(chip);
+  });
+
+  function renderDeck() {
+    deckOrder.forEach((cardIndex, position) => {
+      const card = deckCards[cardIndex];
+      const hidden = position >= VISIBLE_IN_STACK;
+      card.style.zIndex = deckCards.length - position;
+      card.style.transform = `translateY(${Math.min(position, VISIBLE_IN_STACK) * 12}px) scale(${1 - Math.min(position, VISIBLE_IN_STACK) * 0.05})`;
+      card.style.opacity = hidden ? '0' : '1';
+      card.classList.toggle('is-top', position === 0);
+    });
+    const top = deckOrder[0];
+    deckCounter.textContent = `${String(top + 1).padStart(2, '0')} / ${deckCards.length}`;
+    [...deckChips.children].forEach((chip, i) => chip.classList.toggle('active', i === top));
+  }
+
+  function throwTop(direction) {
+    if (isThrowing) return;
+    isThrowing = true;
+    const card = deckCards[deckOrder[0]];
+    card.classList.remove('is-dragging');
+    card.style.transform = `translateX(${direction * 140}%) rotate(${direction * 24}deg)`;
+    card.style.opacity = '0';
+    setTimeout(() => {
+      deckOrder.push(deckOrder.shift());
+      renderDeck();
+      isThrowing = false;
+    }, 380);
+  }
+
+  function bringToTop(cardIndex) {
+    deckOrder = [cardIndex, ...deckOrder.filter((i) => i !== cardIndex)];
+    renderDeck();
+  }
+
+  let dragStartX = null;
+  deck.addEventListener('pointerdown', (e) => {
+    const card = deckCards[deckOrder[0]];
+    if (isThrowing || !card.contains(e.target)) return;
+    dragStartX = e.clientX;
+    card.classList.add('is-dragging');
+    card.setPointerCapture(e.pointerId);
+  });
+  deck.addEventListener('pointermove', (e) => {
+    if (dragStartX === null) return;
+    const dx = e.clientX - dragStartX;
+    deckCards[deckOrder[0]].style.transform = `translateX(${dx}px) rotate(${dx / 14}deg)`;
+  });
+  deck.addEventListener('pointerup', (e) => {
+    if (dragStartX === null) return;
+    const dx = e.clientX - dragStartX;
+    dragStartX = null;
+    deckCards[deckOrder[0]].classList.remove('is-dragging');
+    if (Math.abs(dx) > THROW_DISTANCE) throwTop(Math.sign(dx));
+    else renderDeck();
+  });
+  deck.addEventListener('pointercancel', () => {
+    dragStartX = null;
+    deckCards[deckOrder[0]].classList.remove('is-dragging');
+    renderDeck();
+  });
+  deck.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') throwTop(-1);
+    if (e.key === 'ArrowRight') throwTop(1);
+  });
+  document.querySelectorAll('.deck-btn').forEach((btn) => {
+    btn.addEventListener('click', () => throwTop(Number(btn.dataset.throw)));
+  });
+  renderDeck();
+
+  // ── Título do início sendo digitado, letra por letra ──
+  function typeTitle(title) {
+    const walker = document.createTreeWalker(title, NodeFilter.SHOW_TEXT);
+    const textNodes = [];
+    while (walker.nextNode()) textNodes.push({ node: walker.currentNode, text: walker.currentNode.textContent });
+    textNodes.forEach((item) => { item.node.textContent = ''; });
+
+    const caret = document.createElement('span');
+    caret.className = 'type-caret';
+    caret.setAttribute('aria-hidden', 'true');
+    title.appendChild(caret);
+
+    let nodeIndex = 0, charIndex = 0;
+    function typeNext() {
+      const item = textNodes[nodeIndex];
+      if (!item) return;
+      item.node.textContent = item.text.slice(0, ++charIndex);
+      if (charIndex >= item.text.length) { nodeIndex++; charIndex = 0; }
+      setTimeout(typeNext, 65);
+    }
+    setTimeout(typeNext, 500);
+  }
+
+  // ── Texto do "Sobre mim" aparecendo palavra por palavra, como se estivesse sendo escrito ──
+  function prepareWriting(paragraphs) {
+    let wordIndex = 0;
+    paragraphs.forEach((p) => {
+      [...p.childNodes].forEach((child) => {
+        if (child.nodeType !== Node.TEXT_NODE) return;
+        const fragment = document.createDocumentFragment();
+        child.textContent.split(/(\s+)/).forEach((piece) => {
+          if (!piece.trim()) {
+            fragment.appendChild(document.createTextNode(piece));
+            return;
+          }
+          const span = document.createElement('span');
+          span.className = 'write-word';
+          span.style.setProperty('--w', wordIndex++);
+          span.textContent = piece;
+          fragment.appendChild(span);
+        });
+        child.replaceWith(fragment);
+      });
+    });
+  }
+
+  if (!prefersReducedMotion.matches) {
+    typeTitle(document.querySelector('.hero-right h1'));
+
+    const sobreText = document.querySelector('#sobre > div');
+    prepareWriting([...sobreText.querySelectorAll(':scope > p')]);
+    const writingObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        sobreText.classList.add('writing');
+        writingObserver.disconnect();
+      }
+    }, { threshold: 0.2 });
+    writingObserver.observe(sobreText);
+  }
+
+  function moveCarousel(e, btn, dir) {
+    e.preventDefault();
+    const carousel = btn.closest('.carousel');
+    const track = carousel.querySelector('.carousel-track');
+    const imgs = track.querySelectorAll('img');
+    const dots = carousel.querySelectorAll('.carousel-dots span');
+    let idx = parseInt(carousel.dataset.index) + dir;
+    if (idx < 0) idx = imgs.length - 1;
+    if (idx >= imgs.length) idx = 0;
+    carousel.dataset.index = idx;
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  }
+
+  const sequences = [
+    [
+      { type: 'cmd',   text: 'python -c "print(minha_missao)"' },
+      { type: 'gold',  text: '"Engenharia de IA — não um dia. Agora."' },
+    ],
+    [
+      { type: 'cmd',   text: 'git status' },
+      { type: 'green', text: 'Em progresso: aprendendo todo dia ✓' },
+      { type: 'blue',  text: 'Próximo commit: estágio ou vaga júnior' },
+    ],
+    [
+      { type: 'cmd',   text: 'ls habilidades/' },
+      { type: 'out',   text: 'Python   Django   FastAPI   LLMs   RAG   scikit-learn' },
+    ],
+    [
+      { type: 'cmd',   text: 'cat sobre_mim.txt' },
+      { type: 'out',   text: 'Não vim de uma trajetória linear.' },
+      { type: 'gold',  text: 'E é isso que me diferencia.' },
+    ],
+    [
+      { type: 'cmd',   text: 'git log --oneline' },
+      { type: 'out',   text: 'a1b2c3  CRM Villa Terra Imobiliária' },
+      { type: 'out',   text: 'b2c3d4  My Language Study Notebook' },
+      { type: 'out',   text: 'c3d4e5  Analisador de Sentimentos' },
+      { type: 'out',   text: 'd4e5f6  Central do Corretor' },
+    ],
+    [
+      { type: 'cmd',   text: 'python main.py' },
+      { type: 'green', text: '→ Pronta para estágio ou júnior em Eng. de Software com foco em IA ✓' },
+    ],
+  ];
+
+  const body = document.getElementById('terminal-body');
+  const MAX_LINES = 8;
+  let seqIndex = 0, lineIndex = 0;
+
+  function tick() {
+    const l = sequences[seqIndex][lineIndex];
+    const span = document.createElement('span');
+    span.className = 't-line';
+    if (l.type === 'cmd')        span.innerHTML = `<span class="t-prompt">❯ </span><span class="t-cmd">${l.text}</span>`;
+    else if (l.type === 'gold')  span.innerHTML = `<span class="t-gold">${l.text}</span>`;
+    else if (l.type === 'green') span.innerHTML = `<span class="t-green">${l.text}</span>`;
+    else if (l.type === 'blue')  span.innerHTML = `<span class="t-blue">${l.text}</span>`;
+    else                         span.innerHTML = `<span class="t-out">${l.text}</span>`;
+    body.appendChild(span);
+    while (body.children.length > MAX_LINES) body.removeChild(body.firstChild);
+    lineIndex++;
+    if (lineIndex >= sequences[seqIndex].length) {
+      lineIndex = 0;
+      seqIndex = (seqIndex + 1) % sequences.length;
+      setTimeout(tick, 1800);
+    } else {
+      setTimeout(tick, l.type === 'cmd' ? 700 : 400);
+    }
+  }
+  setTimeout(tick, 1000);
+</script>
+<script src="chat.js"></script>
+
+</body>
+</html>
